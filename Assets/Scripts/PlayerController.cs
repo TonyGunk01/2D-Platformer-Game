@@ -17,6 +17,12 @@ public class PlayerController : MonoBehaviour
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
 
+    public void PickUpKey()
+    {
+        Debug.Log("Player picked up the key!");
+        animator.SetTrigger("PickUpKey");
+    }
+
     /*private void OnCollisionEnter2D(Collision2D collision)
     {
             Debug.Log("Collision: " + collision.gameObject.name);
