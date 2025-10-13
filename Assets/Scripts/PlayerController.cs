@@ -25,6 +25,12 @@ public class PlayerController : MonoBehaviour
         scoreController.AddScore(10);
     }
 
+    public void KillPlayer()
+    {
+        Debug.Log("Player died!");
+        animator.SetBool("True");
+    }
+
     /*private void OnCollisionEnter2D(Collision2D collision)
     {
             Debug.Log("Collision: " + collision.gameObject.name);
