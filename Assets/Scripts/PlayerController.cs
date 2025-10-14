@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Dead", true); 
 
         gameOverController.PlayerDied();
-        StartCoroutine(Delay(0.5f));
+        StartCoroutine(Delay(1f));
 
         this.enabled = false; // disable player controller
         gameOverController.Awake();
