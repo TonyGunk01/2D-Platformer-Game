@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public ScoreController scoreController;
+    public GameOverController gameOverController;
 
     public float speed;
     public float jump;
@@ -15,6 +16,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        animator.SetBool("Dead", false);
         Debug.Log("Player Controller Awake");
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
@@ -26,18 +28,25 @@ public class PlayerController : MonoBehaviour
         scoreController.AddScore(10);
     }
 
+    // kill player and play death animation
+
     public void KillPlayer()
     {
         Debug.Log("Player died!");
-        animator.SetBool("Dead", true);
-        RespawnPlayer();
+        animator.SetBool("Dead", true); 
+
+        gameOverController.PlayerDied();
+        StartCoroutine(Delay(1f));
+
+        this.enabled = false; // disable player controller
+        gameOverController.Awake();
     }
 
-    public void RespawnPlayer()
+    //delay respawn to allow death animation to play
+
+    public IEnumerator Delay(float delay)
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
-        animator.SetBool("Dead", false);
+        yield return new WaitForSeconds(delay);
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)
