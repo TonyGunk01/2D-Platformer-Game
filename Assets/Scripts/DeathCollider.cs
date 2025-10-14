@@ -1,20 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DeathCollider : MonoBehaviour
 {
-    public ScoreController scoreController;
+    public PlayerController playerController;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
-            //Reloading the Current Scene.
-            Debug.Log("Player died!");
-            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(currentSceneIndex);
+            PlayerController playerController = collision.gameObject.GetComponent<PlayerController>();
+            playerController.KillPlayer();
         }
     }
 }

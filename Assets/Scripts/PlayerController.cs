@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,7 +29,15 @@ public class PlayerController : MonoBehaviour
     public void KillPlayer()
     {
         Debug.Log("Player died!");
-        animator.SetBool("True");
+        animator.SetBool("Dead", true);
+        RespawnPlayer();
+    }
+
+    public void RespawnPlayer()
+    {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
+        animator.SetBool("Dead", false);
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)
