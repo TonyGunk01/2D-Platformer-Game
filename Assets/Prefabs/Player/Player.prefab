@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 7853376602739842786}
   - component: {fileID: 1923555249}
   - component: {fileID: 1923555253}
-  - component: {fileID: 5691267107899676386}
+  - component: {fileID: 1232785364}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: c4d7d6470acd7bf45971042161c6e018, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -241,7 +241,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6395258, y: 2.1015801}
   m_EdgeRadius: 0
---- !u!114 &5691267107899676386
+--- !u!114 &1232785364
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -254,5 +254,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 7853376602739842786}
+  scoreController: {fileID: 0}
+  gameOverController: {fileID: 0}
   speed: 10
-  jump: 20
+  jump: 40
