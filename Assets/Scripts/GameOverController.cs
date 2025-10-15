@@ -20,7 +20,8 @@ public class GameOverController : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        Debug.Log("Respawning player...");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.buildIndex);
     }
 }
