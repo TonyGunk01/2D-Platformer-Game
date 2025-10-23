@@ -297,7 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e18ec006e7d420d4885bd51b3fea40de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 0}
+  playerController: {fileID: 5691267107899676384}
 --- !u!61 &152109289
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2639,6 +2639,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 782a2a2a62e7fe24eb95877bde0071d8, type: 3}
+--- !u!114 &5691267107899676384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1232785364, guid: 782a2a2a62e7fe24eb95877bde0071d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 5691267107899676383}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57cc388fa92f3f4458cc1435321cc13c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7145759242331326833
 PrefabInstance:
   m_ObjectHideFlags: 0
