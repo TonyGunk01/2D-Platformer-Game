@@ -19,6 +19,21 @@ public class LevelLoader : MonoBehaviour
 
     private void onClick()
     {
-        SceneManager.LoadScene(LevelName);
+        LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
+
+        switch(levelStatus)
+        {
+            case LevelStatus.Locked:
+                Debug.Log("This level is locked!");
+                break;
+
+            case LevelStatus.Unlocked:
+                SceneManager.LoadScene(LevelName);
+                break;
+
+            case LevelStatus.Completed:
+                SceneManager.LoadScene(LevelName);
+                break;
+        }
     }
 }

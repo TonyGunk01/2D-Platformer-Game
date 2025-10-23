@@ -2357,6 +2357,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1634288037}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1634288039 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4200782537966027969, guid: 5384e91a20093d0459c80108cfc20453,
+    type: 3}
+  m_PrefabInstance: {fileID: 1634288037}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11a02e65baf6db249b38d9bcd6600648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1693407379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2559,7 +2571,7 @@ PrefabInstance:
     - target: {fileID: 1232785364, guid: 782a2a2a62e7fe24eb95877bde0071d8, type: 3}
       propertyPath: gameOverController
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1634288039}
     - target: {fileID: 575578425093705713, guid: 782a2a2a62e7fe24eb95877bde0071d8,
         type: 3}
       propertyPath: m_Name
