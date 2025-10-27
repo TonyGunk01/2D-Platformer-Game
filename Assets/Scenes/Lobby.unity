@@ -1723,6 +1723,10 @@ MonoBehaviour:
     soundClip: {fileID: 8300000, guid: 0651b56880a11ef45909b779443691aa, type: 3}
   - soundType: 3
     soundClip: {fileID: 8300000, guid: 31b2284e8ab3f244182080ca7da474b7, type: 3}
+  - soundType: 5
+    soundClip: {fileID: 8300000, guid: d76c71e98617e1c41a5cdc490eb1bee1, type: 3}
+  IsMute: 0
+  Volume: 1
   soundEffect: {fileID: 1799316849}
   soundMusic: {fileID: 1888325074}
 --- !u!4 &1474070535
