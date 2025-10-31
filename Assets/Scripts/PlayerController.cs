@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public float jump;
+    public bool isDead = false;
 
     public LayerMask groundLayer; // Assign this in the Inspector
     public Transform groundCheck; // Assign an empty GameObject at the player's feet in the Inspector
@@ -96,8 +97,20 @@ public class PlayerController : MonoBehaviour
 
         else
         {
-            animator.SetBool("Jump", false);
-            animator.SetBool("Grounded", isGrounded);
+            if (!isDead)
+            {
+                animator.SetBool("Jump", false);
+                animator.SetBool("Grounded", isGrounded);
+            }
+        }
+    }
+
+    public void Bounce()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 5f); // Adjust bounce force as needed
         }
     }
 }

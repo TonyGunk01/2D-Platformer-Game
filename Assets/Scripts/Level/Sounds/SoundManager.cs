@@ -96,9 +96,11 @@ public enum Sounds
 {
     ButtonClick,
     Music,
-    PlayerMove,
     PlayerDeath,
-    EnemyDeath,
+    ChomperAttack,
+    ChomperDeath,
+    GunnerDeath,
     KeyCollect,
+    BulletFire,
     LevelComplete
 }
