@@ -6,11 +6,13 @@ using UnityEngine.UI;
 
 public class GameOverController : MonoBehaviour
 {
-    public Button buttonRestart;
+    public Button buttonRestart, buttonLobby, buttonQuit;
 
     public void Awake()
     {
         buttonRestart.onClick.AddListener(RespawnPlayer);
+        buttonLobby.onClick.AddListener(Lobby);
+        buttonQuit.onClick.AddListener(QuitGame);
     }
 
     public void PlayerDied()
@@ -24,5 +26,17 @@ public class GameOverController : MonoBehaviour
         Debug.Log("Respawning player...");
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
+    }
+
+    public void Lobby()
+    {
+        Debug.Log("Returning to Lobby...");
+        SceneManager.LoadScene("Lobby");
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game...");
+        Application.Quit();
     }
 }

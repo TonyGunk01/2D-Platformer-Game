@@ -45,10 +45,9 @@ GameObject:
   - component: {fileID: 5243636050836864000}
   - component: {fileID: 8146813258793067343}
   - component: {fileID: 3942151975874401085}
-  - component: {fileID: 1309122028}
   m_Layer: 8
   m_Name: Gunner
-  m_TagString: Gunner
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -200,24 +199,4 @@ MonoBehaviour:
   bulletPrefab: {fileID: 7660304469665073354, guid: 5a4a24f0065ddd247b26a13bf336b877,
     type: 3}
   firePoint: {fileID: 2064530738}
-  fireRate: 1
---- !u!114 &1309122028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2232045736586572927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51547cc03ac43034b9eb1ebb5c7693cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 60
-  yThreshold: 3
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 416
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
   fireRate: 1

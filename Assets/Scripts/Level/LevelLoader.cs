@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class LevelLoader : MonoBehaviour
 {
     private Button button;
-
     public string LevelName;
 
     private void Awake()
@@ -20,18 +19,12 @@ public class LevelLoader : MonoBehaviour
     private void onClick()
     {
         LevelStatus levelStatus = LevelManager.Instance.GetLevelStatus(LevelName);
-
-        switch(levelStatus)
+        switch (levelStatus)
         {
             case LevelStatus.Locked:
                 Debug.Log("This level is locked!");
                 break;
-
             case LevelStatus.Unlocked:
-                SoundManager.Instance.Play(Sounds.ButtonClick);
-                SceneManager.LoadScene(LevelName);
-                break;
-
             case LevelStatus.Completed:
                 SoundManager.Instance.Play(Sounds.ButtonClick);
                 SceneManager.LoadScene(LevelName);

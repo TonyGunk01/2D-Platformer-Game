@@ -210,29 +210,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1769940973}
     m_Modifications:
-    - target: {fileID: 2064530738, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
       propertyPath: m_Name
       value: Gunner (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3707157665435536285, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4538923122465932922, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
@@ -289,16 +270,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5243636050836864000, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279357215723554609, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
 --- !u!4 &101279915 stripped
@@ -307,32 +278,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 101279914}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &101279916 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-    type: 3}
-  m_PrefabInstance: {fileID: 101279914}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &101279917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 101279916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51547cc03ac43034b9eb1ebb5c7693cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 60
-  yThreshold: 3
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 416
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  fireRate: 1
 --- !u!1 &114040585
 GameObject:
   m_ObjectHideFlags: 0
@@ -1677,29 +1622,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1769940973}
     m_Modifications:
-    - target: {fileID: 2064530738, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
       propertyPath: m_Name
       value: Gunner (5)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3707157665435536285, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4538923122465932922, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
@@ -1709,7 +1635,7 @@ PrefabInstance:
     - target: {fileID: 4538923122465932922, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.46
+      value: 33.5
       objectReference: {fileID: 0}
     - target: {fileID: 4538923122465932922, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
@@ -1756,16 +1682,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5243636050836864000, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279357215723554609, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
 --- !u!4 &497982396 stripped
@@ -1774,32 +1690,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 497982395}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &497982397 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-    type: 3}
-  m_PrefabInstance: {fileID: 497982395}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &497982398
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 497982397}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51547cc03ac43034b9eb1ebb5c7693cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 60
-  yThreshold: 3
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 416
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  fireRate: 1
 --- !u!1 &659489672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1857,29 +1747,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1769940973}
     m_Modifications:
-    - target: {fileID: 2064530738, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
       propertyPath: m_Name
       value: Gunner (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3707157665435536285, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4538923122465932922, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
@@ -1936,16 +1807,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5243636050836864000, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279357215723554609, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
 --- !u!4 &666341547 stripped
@@ -1954,32 +1815,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 666341546}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &666341548 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-    type: 3}
-  m_PrefabInstance: {fileID: 666341546}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &666341549
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 666341548}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51547cc03ac43034b9eb1ebb5c7693cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 60
-  yThreshold: 3
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 416
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  fireRate: 1
 --- !u!1001 &834449540
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1987,29 +1822,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1769940973}
     m_Modifications:
-    - target: {fileID: 2064530738, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
       propertyPath: m_Name
       value: Gunner (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3707157665435536285, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4538923122465932922, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
@@ -2065,16 +1881,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5243636050836864000, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279357215723554609, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
@@ -3600,7 +3406,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1134128083
 MonoBehaviour:
@@ -3912,32 +3718,6 @@ Transform:
   m_Father: {fileID: 659489674}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1309122023 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-    type: 3}
-  m_PrefabInstance: {fileID: 834449540}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1309122028
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1309122023}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51547cc03ac43034b9eb1ebb5c7693cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 60
-  yThreshold: 3
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 416
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  fireRate: 1
 --- !u!4 &1338102932 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7145759241202982373, guid: 74ede6564ea278141b9beb436b656985,
@@ -4403,29 +4183,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1769940973}
     m_Modifications:
-    - target: {fileID: 2064530738, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
       propertyPath: m_Name
       value: Gunner (4)
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 3707157665435536285, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4538923122465932922, guid: 51f637654c2bbb346a4d76af936b9a43,
         type: 3}
@@ -4482,16 +4243,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5243636050836864000, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5279357215723554609, guid: 51f637654c2bbb346a4d76af936b9a43,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51f637654c2bbb346a4d76af936b9a43, type: 3}
 --- !u!4 &1446110183 stripped
@@ -4500,32 +4251,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1446110182}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1446110184 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2232045736586572927, guid: 51f637654c2bbb346a4d76af936b9a43,
-    type: 3}
-  m_PrefabInstance: {fileID: 1446110182}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1446110185
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1446110184}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51547cc03ac43034b9eb1ebb5c7693cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 60
-  yThreshold: 3
-  obstacleMask:
-    serializedVersion: 2
-    m_Bits: 416
-  bulletPrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  fireRate: 1
 --- !u!1 &1565714538
 GameObject:
   m_ObjectHideFlags: 0
