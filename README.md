@@ -8,4 +8,4 @@ There are three types of ways in which the player can die: contact with a chasin
 
 I then created a UI Lobby system that allowed you to select levels only when you've unlocked them (eg: Level 3 is unlocked only if you finish Level 2). This can be accessed for replayability to collect coins.
 
-Video Demo:
+[Click here for video demo:](https://youtu.be/2KJWq5rU834)
