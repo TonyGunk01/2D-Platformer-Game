@@ -11,12 +11,17 @@ public class PlayerController : MonoBehaviour
 
     public float speed;
     public float jump;
+    public bool isDead = false;
+
+    public LayerMask groundLayer; // Assign this in the Inspector
+    public Transform groundCheck; // Assign an empty GameObject at the player's feet in the Inspector
+    public float groundCheckRadius = 0.1f;
 
     private Rigidbody2D rb2d;
+    private bool isGrounded;
 
     private void Awake()
     {
-        animator.SetBool("Dead", false);
         Debug.Log("Player Controller Awake");
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
@@ -26,6 +31,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Player picked up the key!");
         animator.SetTrigger("PickUpKey");
         scoreController.AddScore(10);
+        SoundManager.Instance.Play(Sounds.KeyCollect);
     }
 
     // kill player and play death animation
@@ -36,31 +42,24 @@ public class PlayerController : MonoBehaviour
         animator.SetBool("Dead", true); 
 
         gameOverController.PlayerDied();
-        StartCoroutine(Delay(1f));
 
         this.enabled = false; // disable player controller
         gameOverController.Awake();
     }
-
-    //delay respawn to allow death animation to play
-
-    public IEnumerator Delay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-    }
-
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-            Debug.Log("Collision: " + collision.gameObject.name);
-    }*/
 
     private void Update()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Jump");
 
+        CheckGrounded();
         MoveCharacter(horizontal, vertical);
         PlayMovementAnimation(horizontal, vertical);
+    }
+
+    private void CheckGrounded()
+    {
+        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
     }
 
     private void MoveCharacter(float horizontal, float vertical)
@@ -71,7 +70,7 @@ public class PlayerController : MonoBehaviour
         transform.position = position;
 
         // vertical movement
-        if (vertical > 0)
+        if (vertical > 0 && isGrounded)
         {
             rb2d.AddForce(new Vector2(0f, jump), ForceMode2D.Force);
         }
@@ -84,27 +83,34 @@ public class PlayerController : MonoBehaviour
         Vector3 scale = transform.localScale;
 
         if (horizontal < 0)
-        {
             scale.x = -1f * Mathf.Abs(scale.x);
-        }
-
         else if (horizontal > 0)
-        {
             scale.x = Mathf.Abs(scale.x);
-        }
 
         transform.localScale = scale;
 
-        // jump
-        
         if (vertical > 0)
-        {             
+        {
             animator.SetBool("Jump", true);
+            animator.SetBool("Grounded", false);
         }
 
         else
         {
-            animator.SetBool("Jump", false);
+            if (!isDead)
+            {
+                animator.SetBool("Jump", false);
+                animator.SetBool("Grounded", isGrounded);
+            }
+        }
+    }
+
+    public void Bounce()
+    {
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = new Vector2(rb.velocity.x, 5f); // Adjust bounce force as needed
         }
     }
 }
