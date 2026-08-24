@@ -13,8 +13,8 @@ public class PlayerController : MonoBehaviour
     public float jump;
     public bool isDead = false;
 
-    public LayerMask groundLayer; // Assign this in the Inspector
-    public Transform groundCheck; // Assign an empty GameObject at the player's feet in the Inspector
+    public LayerMask groundLayer;
+    public Transform groundCheck;
     public float groundCheckRadius = 0.1f;
 
     private Rigidbody2D rb2d;
@@ -34,8 +34,6 @@ public class PlayerController : MonoBehaviour
         SoundManager.Instance.Play(Sounds.KeyCollect);
     }
 
-    // kill player and play death animation
-
     public void KillPlayer()
     {
         Debug.Log("Player died!");
@@ -43,7 +41,7 @@ public class PlayerController : MonoBehaviour
 
         gameOverController.PlayerDied();
 
-        this.enabled = false; // disable player controller
+        this.enabled = false;
         gameOverController.Awake();
     }
 
@@ -64,12 +62,10 @@ public class PlayerController : MonoBehaviour
 
     private void MoveCharacter(float horizontal, float vertical)
     {
-        // horizontal movement
         Vector3 position = transform.position;
         position.x += horizontal * speed * Time.deltaTime;
         transform.position = position;
 
-        // vertical movement
         if (vertical > 0 && isGrounded)
         {
             rb2d.AddForce(new Vector2(0f, jump), ForceMode2D.Force);
@@ -84,6 +80,7 @@ public class PlayerController : MonoBehaviour
 
         if (horizontal < 0)
             scale.x = -1f * Mathf.Abs(scale.x);
+
         else if (horizontal > 0)
             scale.x = Mathf.Abs(scale.x);
 
@@ -108,9 +105,10 @@ public class PlayerController : MonoBehaviour
     public void Bounce()
     {
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
+
         if (rb != null)
         {
-            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 5f); // Adjust bounce force as needed
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, 5f);
         }
     }
 }
