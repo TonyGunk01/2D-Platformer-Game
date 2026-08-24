@@ -20,7 +20,7 @@ public class UserAccountController : MonoBehaviour
             new RegisterPlayFabUserRequest()
             {
                 Username = username,
-                Password = password
+                Password = password,
             },
 
             response => 
