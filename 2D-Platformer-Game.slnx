@@ -26,9 +26,11 @@
   <Project Path="Unity.AI.Navigation.csproj" />
   <Project Path="Unity.Purchasing.Utilities.csproj" />
   <Project Path="Unity.Purchasing.Editor.Shared.csproj" />
+  <Project Path="PlayFab.csproj" />
   <Project Path="Unity.Purchasing.AppleMacosStub.csproj" />
   <Project Path="Unity.AI.Navigation.Updater.csproj" />
   <Project Path="Unity.Purchasing.Codeless.csproj" />
+  <Project Path="PlayFabEditorExtensions.csproj" />
   <Project Path="Unity.Mediation.Adapters.Editor.csproj" />
   <Project Path="Unity.Settings.Editor.csproj" />
   <Project Path="Unity.Microsoft.GDK.Tools.csproj" />
@@ -52,6 +54,7 @@
   <Project Path="Unity.Purchasing.AppleStub.csproj" />
   <Project Path="Unity.Purchasing.SecurityStub.csproj" />
   <Project Path="UnityEditor.SpatialTracking.csproj" />
+  <Project Path="PlayFabSDKEditor.csproj" />
   <Project Path="Unity.Services.Core.Registration.csproj" />
   <Project Path="PlayServicesResolver.Utils.Editor.csproj" />
   <Project Path="Unity.Services.Core.Environments.csproj" />
