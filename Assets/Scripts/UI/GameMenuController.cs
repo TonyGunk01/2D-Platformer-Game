@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 public class GameMenuController : MonoBehaviour
 {
-    public Button buttonRestart, buttonLobby, buttonQuit; 
+    public Button buttonRestart, buttonMainMenu, buttonQuit; 
 
     public void Awake()
     {
         buttonRestart.onClick.AddListener(RespawnPlayer);
-        buttonLobby.onClick.AddListener(Lobby);
+        buttonMainMenu.onClick.AddListener(MainMenu);
         buttonQuit.onClick.AddListener(QuitGame);
     }
 
@@ -28,10 +28,10 @@ public class GameMenuController : MonoBehaviour
         SceneManager.LoadScene(scene.buildIndex);
     }
 
-    public void Lobby()
+    public void MainMenu()
     {
-        Debug.Log("Returning to Lobby...");
-        SceneManager.LoadScene("Lobby");
+        Debug.Log("Returning to Main Menu...");
+        SceneManager.LoadScene("Main Menu");
     }
 
     public void QuitGame()

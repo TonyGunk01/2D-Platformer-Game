@@ -24,6 +24,7 @@ public class LevelLoader : MonoBehaviour
             case LevelStatus.Locked:
                 Debug.Log("This level is locked!");
                 break;
+
             case LevelStatus.Unlocked:
             case LevelStatus.Completed:
                 SoundManager.Instance.Play(Sounds.ButtonClick);

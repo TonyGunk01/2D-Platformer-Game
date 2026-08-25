@@ -1398,9 +1398,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 891.45886, y: 555.20734, z: -5.602394}
+    m_Target: {x: 920.2567, y: 565.1191, z: -5.1067634}
     speed: 2
-    m_Value: {x: 964.6497, y: 533.3065, z: -5.7184763}
+    m_Value: {x: 891.45886, y: 555.20734, z: -5.602394}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1450,9 +1450,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 570.24005
+    m_Target: 623.076
     speed: 2
-    m_Value: 572.71423
+    m_Value: 570.24005
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1935,27 +1935,27 @@ MonoBehaviour:
       m_Data: 44868
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 41858
-    - m_Data: 41860
-    - m_Data: 41862
-    - m_Data: 41864
-    - m_Data: 41866
-    - m_Data: 41868
-    - m_Data: 41870
-    - m_Data: 41872
-    - m_Data: 41874
-    - m_Data: 41876
-    - m_Data: 41878
-    - m_Data: 41880
-    - m_Data: 41882
-    - m_Data: 41884
-    - m_Data: 41886
-    - m_Data: 41888
-    - m_Data: 41890
-    - m_Data: 41892
-    - m_Data: 41894
-    - m_Data: 41896
-    - m_Data: 41898
+    - m_Data: 41816
+    - m_Data: 41818
+    - m_Data: 41820
+    - m_Data: 41822
+    - m_Data: 41824
+    - m_Data: 41826
+    - m_Data: 41828
+    - m_Data: 41830
+    - m_Data: 41832
+    - m_Data: 41834
+    - m_Data: 41836
+    - m_Data: 41838
+    - m_Data: 41840
+    - m_Data: 41842
+    - m_Data: 41844
+    - m_Data: 41846
+    - m_Data: 41848
+    - m_Data: 41850
+    - m_Data: 41852
+    - m_Data: 41854
+    - m_Data: 41856
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1988,27 +1988,27 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 41858
-    - m_Data: 41860
-    - m_Data: 41862
-    - m_Data: 41864
-    - m_Data: 41866
-    - m_Data: 41868
-    - m_Data: 41870
-    - m_Data: 41872
-    - m_Data: 41874
-    - m_Data: 41876
-    - m_Data: 41878
-    - m_Data: 41880
-    - m_Data: 41882
-    - m_Data: 41884
-    - m_Data: 41886
-    - m_Data: 41888
-    - m_Data: 41890
-    - m_Data: 41892
-    - m_Data: 41894
-    - m_Data: 41896
-    - m_Data: 41898
+    - m_Data: 41816
+    - m_Data: 41818
+    - m_Data: 41820
+    - m_Data: 41822
+    - m_Data: 41824
+    - m_Data: 41826
+    - m_Data: 41828
+    - m_Data: 41830
+    - m_Data: 41832
+    - m_Data: 41834
+    - m_Data: 41836
+    - m_Data: 41838
+    - m_Data: 41840
+    - m_Data: 41842
+    - m_Data: 41844
+    - m_Data: 41846
+    - m_Data: 41848
+    - m_Data: 41850
+    - m_Data: 41852
+    - m_Data: 41854
+    - m_Data: 41856
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
