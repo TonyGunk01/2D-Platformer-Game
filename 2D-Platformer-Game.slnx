@@ -1,5 +1,6 @@
 ﻿<Solution>
   <Project Path="Unity.Timeline.csproj" />
+  <Project Path="Unity.InputSystem.csproj" />
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="Unity.Purchasing.csproj" />
   <Project Path="Unity.Services.Core.Internal.csproj" />
@@ -27,6 +28,7 @@
   <Project Path="Unity.Purchasing.Utilities.csproj" />
   <Project Path="Unity.Purchasing.Editor.Shared.csproj" />
   <Project Path="PlayFab.csproj" />
+  <Project Path="Unity.InputSystem.ForUI.csproj" />
   <Project Path="Unity.Purchasing.AppleMacosStub.csproj" />
   <Project Path="Unity.AI.Navigation.Updater.csproj" />
   <Project Path="Unity.Purchasing.Codeless.csproj" />
@@ -36,6 +38,7 @@
   <Project Path="Unity.Microsoft.GDK.Tools.csproj" />
   <Project Path="Unity.Microsoft.GDK.Tools.Editor.csproj" />
   <Project Path="Unity.Mediation.Build.Editor.csproj" />
+  <Project Path="Unity.InputSystem.DocCodeSamples.csproj" />
   <Project Path="Unity.Services.Core.Analytics.csproj" />
   <Project Path="UnityEngine.SpatialTracking.csproj" />
   <Project Path="Unity.Purchasing.SecurityCore.csproj" />
@@ -48,11 +51,13 @@
   <Project Path="PlayServicesResolver.Installer.Editor.csproj" />
   <Project Path="Unity.Purchasing.Stores.XboxCloudServices.csproj" />
   <Project Path="Unity.Services.Core.Threading.csproj" />
+  <Project Path="Unity.InputSystem.TestFramework.csproj" />
   <Project Path="Unity.Services.Core.Device.csproj" />
   <Project Path="UnityEditor.XR.LegacyInputHelpers.csproj" />
   <Project Path="UnityEngine.XR.LegacyInputHelpers.csproj" />
   <Project Path="Unity.Purchasing.AppleStub.csproj" />
   <Project Path="Unity.Purchasing.SecurityStub.csproj" />
+  <Project Path="Unity.InputSystem.ForUI.Editor.csproj" />
   <Project Path="UnityEditor.SpatialTracking.csproj" />
   <Project Path="PlayFabSDKEditor.csproj" />
   <Project Path="Unity.Services.Core.Registration.csproj" />

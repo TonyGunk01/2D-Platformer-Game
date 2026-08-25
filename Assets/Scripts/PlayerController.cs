@@ -7,11 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     public Animator animator;
     public ScoreController scoreController;
-    public GameOverController gameOverController;
+    public GameMenuController gameMenuController;
+    public GameObject gameMenu;
 
     public float speed;
     public float jump;
     public bool isDead = false;
+    public bool isPaused = false;
+    public float elapsedTime = 0f;
+    private bool isTimerActive = true;
 
     public LayerMask groundLayer;
     public Transform groundCheck;
@@ -19,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb2d;
     private bool isGrounded;
+    private float previousAnimatorSpeed = 1f;
 
     private void Awake()
     {
@@ -37,16 +42,49 @@ public class PlayerController : MonoBehaviour
     public void KillPlayer()
     {
         Debug.Log("Player died!");
-        animator.SetBool("Dead", true); 
 
-        gameOverController.PlayerDied();
+        isDead = true;
+
+        if (animator != null)
+            animator.SetBool("Dead", true);
+        
+        if (gameMenuController != null)
+        {
+            gameMenuController.PlayerDied();
+            gameMenuController.gameObject.SetActive(true);
+        }
+
+        else
+            Debug.LogWarning("PlayerController.gameMenuController is not assigned in the Inspector.");
+
+        if (rb2d != null)
+            rb2d.simulated = false;
+
+        if (animator != null)
+        {
+            previousAnimatorSpeed = animator.speed;
+            animator.speed = 0f;
+        }
+
+        Time.timeScale = 0f;
 
         this.enabled = false;
-        gameOverController.Awake();
     }
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isDead)
+            TogglePause();
+
+        if (isTimerActive)
+            elapsedTime += Time.deltaTime;
+
+        if (isPaused)
+        {
+            isTimerActive = false;
+            return;
+        }
+
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Jump");
 
@@ -55,9 +93,51 @@ public class PlayerController : MonoBehaviour
         PlayMovementAnimation(horizontal, vertical);
     }
 
+    public void TogglePause()
+    {
+        isPaused = !isPaused;
+
+        Debug.Log($"TogglePause called. isPaused={isPaused}");
+
+        if (gameMenu != null)
+        {
+            gameMenu.SetActive(isPaused);
+            Debug.Log($"gameMenu set active={isPaused}");
+        }
+
+        else
+            Debug.LogWarning("PlayerController.gameMenu is not assigned in the Inspector.");
+
+        if (animator != null)
+        {
+            if (isPaused)
+            {
+                previousAnimatorSpeed = animator.speed;
+                animator.speed = 0f;
+            }
+
+            else
+            {
+                isTimerActive = true;
+                animator.speed = previousAnimatorSpeed;
+            }
+        }
+
+        if (rb2d != null)
+            rb2d.simulated = !isPaused;
+
+        Time.timeScale = isPaused ? 0f : 1f;
+    }
+
     private void CheckGrounded()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+    }
+
+    public void StopTimer()
+    {
+        isTimerActive = false;
+        Debug.Log("Level Completed in: " + elapsedTime + " seconds");
     }
 
     private void MoveCharacter(float horizontal, float vertical)
@@ -67,9 +147,7 @@ public class PlayerController : MonoBehaviour
         transform.position = position;
 
         if (vertical > 0 && isGrounded)
-        {
             rb2d.AddForce(new Vector2(0f, jump), ForceMode2D.Force);
-        }
     }
 
     private void PlayMovementAnimation(float horizontal, float vertical)
@@ -107,8 +185,6 @@ public class PlayerController : MonoBehaviour
         Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
         if (rb != null)
-        {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, 5f);
-        }
     }
 }

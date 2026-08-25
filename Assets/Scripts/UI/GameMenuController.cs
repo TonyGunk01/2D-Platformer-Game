@@ -4,17 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class PauseController : MonoBehaviour
+public class GameMenuController : MonoBehaviour
 {
-    public Button buttonRestart, buttonLobby, buttonQuit, buttonResume, buttonPause;
+    public Button buttonRestart, buttonLobby, buttonQuit; 
 
     public void Awake()
     {
         buttonRestart.onClick.AddListener(RespawnPlayer);
         buttonLobby.onClick.AddListener(Lobby);
         buttonQuit.onClick.AddListener(QuitGame);
-        buttonResume.onClick.AddListener(ResumeGame);
-        buttonPause.onClick.AddListener(PauseGame);
     }
 
     public void PlayerDied()
@@ -34,20 +32,6 @@ public class PauseController : MonoBehaviour
     {
         Debug.Log("Returning to Lobby...");
         SceneManager.LoadScene("Lobby");
-    }
-
-    public void ResumeGame()
-    {
-        Debug.Log("Resuming game...");
-        Time.timeScale = 1f;
-        gameObject.SetActive(false);
-    }
-
-    public void PauseGame()
-    {
-        Debug.Log("Pausing game...");
-        Time.timeScale = 0f;
-        gameObject.SetActive(true);
     }
 
     public void QuitGame()

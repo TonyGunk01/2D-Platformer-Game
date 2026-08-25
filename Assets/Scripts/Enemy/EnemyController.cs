@@ -10,7 +10,6 @@ public class EnemyController : MonoBehaviour
 
         Animator animator = GetComponent<Animator>();
 
-        // If the player's CollisionCheck hits the enemy, kill the enemy and bounce the player
         if (collision.CompareTag("CollisionCheck"))
         {
             if (playerController != null)
@@ -28,12 +27,11 @@ public class EnemyController : MonoBehaviour
                     SoundManager.Instance.Play(Sounds.GunnerDeath);
                 }
 
-                Destroy(gameObject, 1.5f); // Kill the enemy after enemy death animation
-                playerController.Bounce();     // Make the player bounce (implement this in PlayerController if not present)
+                Destroy(gameObject, 1.5f);
+                playerController.Bounce();
             }
         }
 
-        // Otherwise, if the player hits the enemy from the side, kill the player
         else if (collision.CompareTag("Player"))
         {
             playerController.KillPlayer();
