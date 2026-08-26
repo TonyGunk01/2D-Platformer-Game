@@ -11,9 +11,10 @@ public class LocalAuthenticationController : MonoBehaviour
 
     private void Awake()
     {
-        saveDirectory = Path.Combine(Application.persistentDataPath, "LocalAccounts");
+        string projectRoot = Directory.GetParent(Application.dataPath).FullName;
+        saveDirectory = Path.Combine(projectRoot, "UserDatabase");
 
-        if (!Directory.Exists(saveDirectory)) 
+        if (!Directory.Exists(saveDirectory))
             Directory.CreateDirectory(saveDirectory);
     }
 
@@ -36,7 +37,7 @@ public class LocalAuthenticationController : MonoBehaviour
         return Path.Combine(saveDirectory, username.ToLower().Trim() + ".json");
     }
 
-    public string DeleteAccount(string username, string recoveryKey, string password)
+    public string DeleteAccount(string username, string password)
     {
         string path = GetFilePath(username);
 
@@ -48,12 +49,6 @@ public class LocalAuthenticationController : MonoBehaviour
 
         if (account.passwordHash != HashString(password))
             return "Incorrect password.";
-
-        string savedKeyUpper = account.recoveryKey.Trim().ToUpper();
-        string typedKeyUpper = recoveryKey.Trim().ToUpper();
-
-        if (savedKeyUpper != typedKeyUpper)
-            return "Invalid recovery key.";
 
         try
         {
@@ -139,11 +134,11 @@ public class LocalAuthenticationController : MonoBehaviour
 
         string strictKey = GenerateStrictRecoveryKey();
 
-        UserAccountController newAccount = new UserAccountController()
+        UserAccountController newAccount = new UserAccountController
         {
             username = username.Trim(),
             passwordHash = HashString(password),
-            recoveryKey = strictKey.Trim()
+            recoveryKey = HashString(strictKey.Trim())
         };
 
         File.WriteAllText(path, JsonUtility.ToJson(newAccount, true));
@@ -167,10 +162,7 @@ public class LocalAuthenticationController : MonoBehaviour
         string json = File.ReadAllText(path);
         UserAccountController account = JsonUtility.FromJson<UserAccountController>(json);
 
-        string savedKeyUpper = account.recoveryKey.Trim().ToUpper();
-        string typedKeyUpper = recoveryKey.Trim().ToUpper();
-
-        if (savedKeyUpper == typedKeyUpper)
+        if (account.recoveryKey == HashString(recoveryKey.Trim()))
         {
             account.passwordHash = HashString(newPassword);
             File.WriteAllText(path, JsonUtility.ToJson(account, true));

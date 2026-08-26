@@ -125,22 +125,21 @@ public class AuthenticationUIController : MonoBehaviour
     public void OnClickDeleteAccountSubmit()
     {
         string username = deleteUser.text.Trim();
-        string keyInput = deleteKey.text.Trim();
         string passInput = deletePass.text;
 
-        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(keyInput) || string.IsNullOrEmpty(passInput))
+        if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(passInput))
         {
             statusText.text = "<color=red>Please fill in all verification fields.</color>";
             return;
         }
 
-        string result = authenticationSystem.DeleteAccount(username, keyInput, passInput);
+        string result = authenticationSystem.DeleteAccount(username, passInput);
 
         if (result == "SUCCESS")
         {
             statusText.text = "<color=green>Account permanently deleted from database.</color>";
 
-            deleteUser.text = ""; deleteKey.text = ""; deletePass.text = "";
+            deleteUser.text = ""; deletePass.text = "";
             navigation.ShowStartScreen();
         }
 
