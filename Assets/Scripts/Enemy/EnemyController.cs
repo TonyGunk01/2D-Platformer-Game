@@ -18,14 +18,29 @@ public class EnemyController : MonoBehaviour
                     animator.SetTrigger("Dead");
 
                 if (gameObject.CompareTag("Chomper"))
-                {
                     SoundManager.Instance.Play(Sounds.ChomperDeath);
-                }
 
                 else if (gameObject.CompareTag("Gunner"))
-                {
                     SoundManager.Instance.Play(Sounds.GunnerDeath);
+
+                Collider2D enemyCollider = GetComponent<Collider2D>();
+                if (enemyCollider != null)
+                    enemyCollider.enabled = false;
+
+                Collider2D[] childColliders = GetComponentsInChildren<Collider2D>();
+                foreach (Collider2D childCol in childColliders)
+                {
+                    childCol.enabled = false;
                 }
+
+                Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
+                if (rb2d != null)
+                {
+                    rb2d.simulated = false;
+                    rb2d.linearVelocity = Vector2.zero;
+                }
+
+                this.enabled = false;
 
                 Destroy(gameObject, 1.5f);
                 playerController.Bounce();
@@ -34,7 +49,8 @@ public class EnemyController : MonoBehaviour
 
         else if (collision.CompareTag("Player"))
         {
-            playerController.KillPlayer();
+            if (playerController != null && !playerController.isDead)
+                playerController.KillPlayer();
         }
     }
 }
