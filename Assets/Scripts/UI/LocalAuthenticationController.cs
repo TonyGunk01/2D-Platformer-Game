@@ -53,7 +53,6 @@ public class LocalAuthenticationController : MonoBehaviour
         try
         {
             File.Delete(path);
-            Debug.Log($"[AuthSystem] Account for {username} was permanently deleted.");
             return "SUCCESS";
         }
 
@@ -149,9 +148,13 @@ public class LocalAuthenticationController : MonoBehaviour
     public string ResetPasswordWithKey(string username, string recoveryKey, string newPassword, string confirmNewPassword)
     {
         string path = GetFilePath(username);
+        if (!File.Exists(path)) return "Username not found.";
 
-        if (!File.Exists(path)) 
-            return "Username not found.";
+        string json = File.ReadAllText(path);
+        UserAccountController account = JsonUtility.FromJson<UserAccountController>(json);
+
+        if (account.recoveryKey != HashString(recoveryKey.Trim()))
+            return "Invalid recovery key.";
 
         if (newPassword != confirmNewPassword) 
             return "Passwords do not match.";
@@ -159,16 +162,9 @@ public class LocalAuthenticationController : MonoBehaviour
         if (!IsPasswordValid(newPassword)) 
             return "New password does not meet criteria.";
 
-        string json = File.ReadAllText(path);
-        UserAccountController account = JsonUtility.FromJson<UserAccountController>(json);
-
-        if (account.recoveryKey == HashString(recoveryKey.Trim()))
-        {
-            account.passwordHash = HashString(newPassword);
-            File.WriteAllText(path, JsonUtility.ToJson(account, true));
-            return "SUCCESS";
-        }
-
-        return "Invalid recovery key.";
+        account.passwordHash = HashString(newPassword);
+        File.WriteAllText(path, JsonUtility.ToJson(account, true));
+        return "SUCCESS";
     }
+
 }

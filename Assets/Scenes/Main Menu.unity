@@ -1021,8 +1021,8 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 7
-  m_InputType: 2
+  m_ContentType: 0
+  m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
@@ -7734,12 +7734,10 @@ GameObject:
   - component: {fileID: 1670289064}
   - component: {fileID: 1670289063}
   - component: {fileID: 1670289062}
-  - component: {fileID: 1670289066}
   - component: {fileID: 1670289068}
   - component: {fileID: 1670289067}
   - component: {fileID: 1670289069}
   - component: {fileID: 1670289070}
-  - component: {fileID: 1670289071}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -7833,20 +7831,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1670289066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670289061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df61feedad41bfd4d91f1438e88bd2a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttonPlay: {fileID: 0}
-  LevelSelection: {fileID: 1423804177}
 --- !u!114 &1670289067
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7931,29 +7915,14 @@ MonoBehaviour:
   newPass: {fileID: 31001814}
   newPassConfirm: {fileID: 1923668545}
   levelSelectionPopUp: {fileID: 1423804177}
+  loginPopUp: {fileID: 921236655}
+  verifyPopUp: {fileID: 1307817786}
+  changePswdPopUp: {fileID: 680900845}
+  optionsPopUp: {fileID: 1315051238}
+  startscreenPopUp: {fileID: 715012910}
   deleteUser: {fileID: 1401430384}
   deleteKey: {fileID: 270111711}
   deletePass: {fileID: 971269016}
---- !u!114 &1670289071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670289061}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdda4da43dc754342b266b26ba5c54e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MenuNavigationController
-  startScreen: {fileID: 715012910}
-  optionsParent: {fileID: 1315051238}
-  userLoginPanel: {fileID: 921236655}
-  userRegisterPanel: {fileID: 1174418938}
-  userVerifyKeyPanel: {fileID: 1307817786}
-  userChangePasswordPanel: {fileID: 680900845}
-  userDeletePanel: {fileID: 1180834031}
-  buttonBack: {fileID: 1867717741}
 --- !u!1 &1674271042
 GameObject:
   m_ObjectHideFlags: 0
@@ -9272,12 +9241,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1821372096}
   m_CullTransparentMesh: 1
---- !u!1 &1867717741 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9122160427130161138, guid: e07d9d30aad5af44ebe51b845e193ed0,
-    type: 3}
-  m_PrefabInstance: {fileID: 4615078291307184980}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1876847507
 GameObject:
   m_ObjectHideFlags: 0
@@ -10932,18 +10895,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: AuthUIController, Assembly-CSharp
         m_MethodName: OnClickLoginSubmit
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 921236655}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

@@ -26,6 +26,11 @@ public class AuthenticationUIController : MonoBehaviour
 
     [Header("Pop-ups")]
     public GameObject levelSelectionPopUp;
+    public GameObject loginPopUp;
+    public GameObject verifyPopUp;
+    public GameObject changePswdPopUp;
+    public GameObject optionsPopUp;
+    public GameObject startscreenPopUp;
 
     [Header("Delete Account UI Elements")]
     public TMP_InputField deleteUser;
@@ -45,17 +50,17 @@ public class AuthenticationUIController : MonoBehaviour
             ClearAllInputs();
 
             if (levelSelectionPopUp != null)
-            {
                 levelSelectionPopUp.SetActive(true);
-                Debug.Log("Level Selection Popup opened successfully.");
-            }
 
-            else
-                Debug.LogWarning("LevelSelectionPopUp variable is missing an assignment in the Inspector.");
+            loginPopUp.SetActive(false);
         }
 
         else
-            statusText.text = "<color=red>Invalid username or password.</color>";
+        {
+            statusText.text = "<color=red>Invalid username or password. Please try again.</color>";
+            ClearAllInputs();
+            loginPopUp.SetActive(true);
+        }
     }
 
     public void OnClickRegisterSubmit()
@@ -81,16 +86,37 @@ public class AuthenticationUIController : MonoBehaviour
 
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(keyInput))
         {
-            statusText.text = "<color=red>Please fill in all recovery fields.</color>";
+            statusText.text = "<color=red>Please fill in all fields.</color>";
+            return;
+        }
+
+        string checkResult = authenticationSystem.ResetPasswordWithKey(username, keyInput, "", "");
+
+        if (checkResult == "Username not found.")
+        {
+            statusText.text = "<color=red>Username not found.</color>";
+            return;
+        }
+
+        else if (checkResult == "Invalid recovery key.")
+        {
+            statusText.text = "<color=red>Incorrect recovery key.</color>";
             return;
         }
 
         validatedUsername = username;
         validatedRecoveryKey = keyInput;
 
-        statusText.text = "<color=green>Key verification input saved. Enter new password.</color>";
+        statusText.text = "<color=green>Verified! Enter your new password below.</color>";
         ClearAllInputs();
+
+        if (verifyPopUp != null) 
+            verifyPopUp.SetActive(false);
+
+        if (changePswdPopUp != null) 
+            changePswdPopUp.SetActive(true);
     }
+
 
     public void OnClickChangePasswordSubmit()
     {
@@ -103,11 +129,13 @@ public class AuthenticationUIController : MonoBehaviour
 
         if (result == "SUCCESS")
         {
-            statusText.text = "<color=green>Password updated successfully! Try logging in.</color>";
+            statusText.text = "<color=green>Password updated.</color>";
             ClearAllInputs();
 
             validatedUsername = "";
             validatedRecoveryKey = "";
+            optionsPopUp.SetActive(false);
+            startscreenPopUp.SetActive(true);
         }
 
         else
@@ -121,7 +149,7 @@ public class AuthenticationUIController : MonoBehaviour
 
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(passInput))
         {
-            statusText.text = "<color=red>Please fill in all verification fields.</color>";
+            statusText.text = "<color=red>Please fill in all fields.</color>";
             return;
         }
 
