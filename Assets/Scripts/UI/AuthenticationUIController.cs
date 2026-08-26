@@ -29,6 +29,7 @@ public class AuthenticationUIController : MonoBehaviour
     public GameObject loginPopUp;
     public GameObject verifyPopUp;
     public GameObject changePswdPopUp;
+    public GameObject deletePopUp;
     public GameObject optionsPopUp;
     public GameObject startscreenPopUp;
 
@@ -158,7 +159,9 @@ public class AuthenticationUIController : MonoBehaviour
         if (result == "SUCCESS")
         {
             statusText.text = "<color=green>Account permanently deleted from database.</color>";
-
+            ClearAllInputs();
+            deletePopUp.SetActive(false);
+            startscreenPopUp.SetActive(true);
             deleteUser.text = ""; deletePass.text = "";
         }
 
