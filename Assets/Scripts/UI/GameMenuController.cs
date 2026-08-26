@@ -24,6 +24,7 @@ public class GameMenuController : MonoBehaviour
     public void RespawnPlayer()
     {
         Debug.Log("Respawning player...");
+        Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
     }

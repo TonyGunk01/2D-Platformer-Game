@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,14 +9,9 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public ScoreController scoreController;
     public GameMenuController gameMenuController;
-    public GameObject gameMenu;
-
     public float speed;
     public float jump;
     public bool isDead = false;
-    public bool isPaused = false;
-    public float elapsedTime = 0f;
-    private bool isTimerActive = true;
 
     public LayerMask groundLayer;
     public Transform groundCheck;
@@ -24,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb2d;
     private bool isGrounded;
     private float previousAnimatorSpeed = 1f;
+    public TMP_Text displayText;
 
     private void Awake()
     {
@@ -42,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public void KillPlayer()
     {
         Debug.Log("Player died!");
+        displayText.text = "Game Over";
 
         isDead = true;
 
@@ -73,17 +71,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && !isDead)
-            TogglePause();
-
-        if (isTimerActive)
-            elapsedTime += Time.deltaTime;
-
-        if (isPaused)
-        {
-            isTimerActive = false;
+        if ((GetComponent<PauseController>() != null && GetComponent<PauseController>().isPaused) || isDead)
             return;
-        }
 
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Jump");
@@ -93,51 +82,9 @@ public class PlayerController : MonoBehaviour
         PlayMovementAnimation(horizontal, vertical);
     }
 
-    public void TogglePause()
-    {
-        isPaused = !isPaused;
-
-        Debug.Log($"TogglePause called. isPaused={isPaused}");
-
-        if (gameMenu != null)
-        {
-            gameMenu.SetActive(isPaused);
-            Debug.Log($"gameMenu set active={isPaused}");
-        }
-
-        else
-            Debug.LogWarning("PlayerController.gameMenu is not assigned in the Inspector.");
-
-        if (animator != null)
-        {
-            if (isPaused)
-            {
-                previousAnimatorSpeed = animator.speed;
-                animator.speed = 0f;
-            }
-
-            else
-            {
-                isTimerActive = true;
-                animator.speed = previousAnimatorSpeed;
-            }
-        }
-
-        if (rb2d != null)
-            rb2d.simulated = !isPaused;
-
-        Time.timeScale = isPaused ? 0f : 1f;
-    }
-
     private void CheckGrounded()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
-    }
-
-    public void StopTimer()
-    {
-        isTimerActive = false;
-        Debug.Log("Level Completed in: " + elapsedTime + " seconds");
     }
 
     private void MoveCharacter(float horizontal, float vertical)

@@ -92,6 +92,7 @@ GameObject:
   - component: {fileID: 1923555249}
   - component: {fileID: 1923555253}
   - component: {fileID: 1232785364}
+  - component: {fileID: 3453610755571633403}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -284,13 +285,29 @@ MonoBehaviour:
   animator: {fileID: 7853376602739842786}
   scoreController: {fileID: 0}
   gameMenuController: {fileID: 0}
-  gameMenu: {fileID: 0}
   speed: 10
-  jump: 100
+  jump: 135
   isDead: 0
-  isPaused: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 320
   groundCheck: {fileID: 304898949}
   groundCheckRadius: 0.25
+  displayText: {fileID: 0}
+--- !u!114 &3453610755571633403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575578425093705713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3886f88e0cc27d4f8e077fe573d9a1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PauseController
+  isPaused: 0
+  gameMenu: {fileID: 0}
+  animator: {fileID: 7853376602739842786}
+  rb2d: {fileID: 1923555249}
+  displayText: {fileID: 0}
