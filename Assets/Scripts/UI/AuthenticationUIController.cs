@@ -5,7 +5,6 @@ public class AuthenticationUIController : MonoBehaviour
 {
     [Header("Core Systems")]
     public LocalAuthenticationController authenticationSystem;
-    public MenuNavigationController navigation;
     public TMP_Text statusText;
 
     [Header("Login UI Elements")]
@@ -45,9 +44,6 @@ public class AuthenticationUIController : MonoBehaviour
             statusText.text = "<color=green>Login Successful!</color>";
             ClearAllInputs();
 
-            navigation.optionsParent.SetActive(false);
-            navigation.buttonBack.SetActive(false);
-
             if (levelSelectionPopUp != null)
             {
                 levelSelectionPopUp.SetActive(true);
@@ -72,7 +68,6 @@ public class AuthenticationUIController : MonoBehaviour
             statusText.text = $"Account Created! Write down your recovery key: <color=yellow>{generatedKey}</color>";
 
             ClearAllInputs();
-            Invoke(nameof(RedirectToLogin), 4f);
         }
 
         else
@@ -95,7 +90,6 @@ public class AuthenticationUIController : MonoBehaviour
 
         statusText.text = "<color=green>Key verification input saved. Enter new password.</color>";
         ClearAllInputs();
-        navigation.OpenChangePasswordPanel();
     }
 
     public void OnClickChangePasswordSubmit()
@@ -114,8 +108,6 @@ public class AuthenticationUIController : MonoBehaviour
 
             validatedUsername = "";
             validatedRecoveryKey = "";
-
-            navigation.OpenLoginPanel();
         }
 
         else
@@ -140,16 +132,10 @@ public class AuthenticationUIController : MonoBehaviour
             statusText.text = "<color=green>Account permanently deleted from database.</color>";
 
             deleteUser.text = ""; deletePass.text = "";
-            navigation.ShowStartScreen();
         }
 
         else
             statusText.text = $"<color=red>{result}</color>";
-    }
-
-    private void RedirectToLogin()
-    {
-        navigation.OpenLoginPanel();
     }
 
     private void ClearAllInputs()
