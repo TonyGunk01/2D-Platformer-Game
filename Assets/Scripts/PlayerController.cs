@@ -24,13 +24,11 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("Player Controller Awake");
         rb2d = gameObject.GetComponent<Rigidbody2D>();
     }
 
     public void PickUpKey()
     {
-        Debug.Log("Player picked up the key!");
         animator.SetTrigger("PickUpKey");
         scoreController.AddScore(10);
         SoundManager.Instance.Play(Sounds.KeyCollect);
@@ -38,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
     public void KillPlayer()
     {
-        Debug.Log("Player died!");
         displayText.text = "Game Over";
 
         isDead = true;
@@ -51,9 +48,6 @@ public class PlayerController : MonoBehaviour
             gameMenuController.PlayerDied();
             gameMenuController.gameObject.SetActive(true);
         }
-
-        else
-            Debug.LogWarning("PlayerController.gameMenuController is not assigned in the Inspector.");
 
         if (rb2d != null)
             rb2d.simulated = false;

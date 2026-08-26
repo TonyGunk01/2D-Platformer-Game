@@ -10,7 +10,6 @@ public class PauseController : MonoBehaviour
     public Rigidbody2D rb2d;
     private float previousAnimatorSpeed = 1f;
     private PlayerController playerController;
-
     public TMP_Text displayText;
 
     private void Awake()
@@ -33,17 +32,10 @@ public class PauseController : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
-        Debug.Log($"TogglePause called. isPaused={isPaused}");
         displayText.text = "Game Paused";
 
         if (gameMenu != null)
-        {
             gameMenu.SetActive(isPaused);
-            Debug.Log($"gameMenu set active={isPaused}");
-        }
-
-        else
-            Debug.LogWarning("PauseController.gameMenu is not assigned in the Inspector.");
 
         if (animator != null)
         {

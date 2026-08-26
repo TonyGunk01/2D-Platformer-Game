@@ -23,7 +23,6 @@ public class GameMenuController : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        Debug.Log("Respawning player...");
         Time.timeScale = 1f;
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.buildIndex);
@@ -31,13 +30,11 @@ public class GameMenuController : MonoBehaviour
 
     public void MainMenu()
     {
-        Debug.Log("Returning to Main Menu...");
         SceneManager.LoadScene("Main Menu");
     }
 
     public void QuitGame()
     {
-        Debug.Log("Quitting game...");
         Application.Quit();
     }
 }

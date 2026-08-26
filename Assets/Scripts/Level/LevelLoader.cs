@@ -22,7 +22,6 @@ public class LevelLoader : MonoBehaviour
         switch (levelStatus)
         {
             case LevelStatus.Locked:
-                Debug.Log("This level is locked!");
                 break;
 
             case LevelStatus.Unlocked:
