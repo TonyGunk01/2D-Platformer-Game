@@ -1,18 +1,9 @@
-using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
+using System;
 
-public class UserAccountController : MonoBehaviour
+[Serializable]
+public class UserAccountController
 {
-    public static UserAccountController Instance;
-
-    void Awake()
-    {
-        Instance = this;
-    }
-
-    public void CreateAccount (string username, string password)
-    {
-
-    }
+    public string username;
+    public string passwordHash;
+    public string recoveryKey;
 }
