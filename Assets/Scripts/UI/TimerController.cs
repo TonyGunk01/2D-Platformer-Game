@@ -22,6 +22,6 @@ public class UIAdvancedTimer : MonoBehaviour
 
         int milliseconds = Mathf.FloorToInt((timeToDisplay % 1) * 100);
 
-        timerText.text = string.Format("Time: {0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+        timerText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
     }
 }

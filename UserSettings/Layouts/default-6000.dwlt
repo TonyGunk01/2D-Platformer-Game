@@ -1284,7 +1284,7 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 914.32086, y: 525.3367, z: -5.518532}
+    m_Target: {x: 862.99896, y: 556.03235, z: -5.672789}
     speed: 2
     m_Value: {x: 914.32086, y: 525.3367, z: -5.518532}
   m_RenderMode: 0
@@ -1336,7 +1336,7 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 577.20886
+    m_Target: 592.6331
     speed: 2
     m_Value: 577.20886
   m_Ortho:
@@ -1841,26 +1841,26 @@ MonoBehaviour:
       m_Data: 40392
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 40228
-    - m_Data: 40230
-    - m_Data: 40232
-    - m_Data: 40234
-    - m_Data: 40236
-    - m_Data: 40238
-    - m_Data: 40240
-    - m_Data: 40242
-    - m_Data: 40244
-    - m_Data: 40246
-    - m_Data: 40248
-    - m_Data: 40250
-    - m_Data: 40252
-    - m_Data: 40254
-    - m_Data: 40256
-    - m_Data: 40258
-    - m_Data: 40260
-    - m_Data: 40262
-    - m_Data: 40264
-    - m_Data: 40266
+    - m_Data: 40292
+    - m_Data: 40294
+    - m_Data: 40296
+    - m_Data: 40298
+    - m_Data: 40300
+    - m_Data: 40302
+    - m_Data: 40304
+    - m_Data: 40306
+    - m_Data: 40308
+    - m_Data: 40310
+    - m_Data: 40312
+    - m_Data: 40314
+    - m_Data: 40316
+    - m_Data: 40318
+    - m_Data: 40320
+    - m_Data: 40322
+    - m_Data: 40324
+    - m_Data: 40326
+    - m_Data: 40328
+    - m_Data: 40330
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1893,26 +1893,26 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 40228
-    - m_Data: 40230
-    - m_Data: 40232
-    - m_Data: 40234
-    - m_Data: 40236
-    - m_Data: 40238
-    - m_Data: 40240
-    - m_Data: 40242
-    - m_Data: 40244
-    - m_Data: 40246
-    - m_Data: 40248
-    - m_Data: 40250
-    - m_Data: 40252
-    - m_Data: 40254
-    - m_Data: 40256
-    - m_Data: 40258
-    - m_Data: 40260
-    - m_Data: 40262
-    - m_Data: 40264
-    - m_Data: 40266
+    - m_Data: 40292
+    - m_Data: 40294
+    - m_Data: 40296
+    - m_Data: 40298
+    - m_Data: 40300
+    - m_Data: 40302
+    - m_Data: 40304
+    - m_Data: 40306
+    - m_Data: 40308
+    - m_Data: 40310
+    - m_Data: 40312
+    - m_Data: 40314
+    - m_Data: 40316
+    - m_Data: 40318
+    - m_Data: 40320
+    - m_Data: 40322
+    - m_Data: 40324
+    - m_Data: 40326
+    - m_Data: 40328
+    - m_Data: 40330
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
