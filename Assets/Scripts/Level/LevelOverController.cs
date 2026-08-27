@@ -13,10 +13,6 @@ public class LevelOverController : MonoBehaviour
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             if (currentSceneIndex <= 4)
                 SceneManager.LoadScene(currentSceneIndex+1);
-            else
-            {
-                
-            }
         }
     }
 }

@@ -166,5 +166,4 @@ public class LocalAuthenticationController : MonoBehaviour
         File.WriteAllText(path, JsonUtility.ToJson(account, true));
         return "SUCCESS";
     }
-
 }

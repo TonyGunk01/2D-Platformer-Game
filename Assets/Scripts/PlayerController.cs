@@ -34,34 +34,27 @@ public class PlayerController : MonoBehaviour
         SoundManager.Instance.Play(Sounds.KeyCollect);
     }
 
-    // UPDATED: Now starts a coroutine instead of stopping the game instantly
     public void KillPlayer()
     {
-        // Safety check to ensure the sequence doesn't run multiple times
-        if (isDead) return;
+        if (isDead) 
+            return;
 
-        displayText.text = "Game Over";
+        displayText.text = "<color=red>Game Over</color>";
         isDead = true;
 
-        // Fire the delayed death routine sequence
         StartCoroutine(DeathSequenceRoutine());
     }
 
-    // NEW: Handles the animation wait window before showing menus
     private IEnumerator DeathSequenceRoutine()
     {
-        // 1. Play animation at regular speed
         if (animator != null)
             animator.SetBool("Dead", true);
 
-        // 2. Cut simulation so the character doesn't fall through platforms or slide
         if (rb2d != null)
             rb2d.simulated = false;
 
-        // 3. WAIT: Adjust '1.5f' below to match your death animation clip length exactly
         yield return new WaitForSeconds(1.5f);
 
-        // 4. AFTER THE DELAY: Activate menus and freeze global game time
         if (gameMenuController != null)
         {
             gameMenuController.PlayerDied();
@@ -75,8 +68,6 @@ public class PlayerController : MonoBehaviour
         }
 
         Time.timeScale = 0f;
-
-        // Disable script components so Update loop completely shuts down
         this.enabled = false;
     }
 

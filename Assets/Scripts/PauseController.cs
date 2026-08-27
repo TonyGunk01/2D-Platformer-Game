@@ -32,7 +32,7 @@ public class PauseController : MonoBehaviour
     public void TogglePause()
     {
         isPaused = !isPaused;
-        displayText.text = "Game Paused";
+        displayText.text = "<color=blue>Game Paused</color>";
 
         if (gameMenu != null)
             gameMenu.SetActive(isPaused);
