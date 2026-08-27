@@ -5,29 +5,32 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    GraphicsSettingsInspector_UserSettings:
+      value: 18134705175a055722080a3115371d4a0d55006876786860616b0471b8b1646db0a966b9b76b6d6e6955bf6f556c5422be481902e60e06021f0bdb1b1df3240a01c036c417cd5d46893b09c7c1099ccadb94c9
+      flags: 0
     RecentlyUsedSceneGuid-0:
-      value: 0653000755050c0a0b0d097a412607444716487d7b7d74352c701c36b7b7616c
+      value: 50030d5655545f085b5a5f271177084413154b72787d27357a2d4436e1e3673b
       flags: 0
     RecentlyUsedSceneGuid-1:
-      value: 0604555750045009545f0e75132606444116417e7c712065782a4e30e0b2636f
+      value: 020455565356080859575d7149760c44104f1b297d787f64297b1b30b5b7606f
       flags: 0
     RecentlyUsedSceneGuid-2:
-      value: 57070d550751585d0b0c0974437a0d441216497a7e2d273378791863b6e5323e
+      value: 520751510305510b5c57597316200b44464e4f2f7c7f7032292d1b31b4e46d6e
       flags: 0
     RecentlyUsedSceneGuid-3:
-      value: 505000500454510b5a5d08241674084442164a2e7a29703228791b64b6b7363e
+      value: 050706515500580e0f0a5b7744215c44154e1e79747c70687e2d4d63b5b2326d
       flags: 0
     RecentlyUsedSceneGuid-4:
-      value: 56540c005c0c5e0b085f5d244126064413161a2e78797162757c4830b7b1356d
-      flags: 0
-    RecentlyUsedSceneGuid-5:
-      value: 0005005300560f0b590f0a26497a0d44454e1e7c292d23677b2b4935b4b6643b
-      flags: 0
-    RecentlyUsedSceneGuid-6:
       value: 0603550551035b5808085a7547750e4442161c72782a73647d781f36b7b96739
       flags: 0
-    RecentlyUsedSceneGuid-7:
+    RecentlyUsedSceneGuid-5:
       value: 53040500530c0c5d585f5b2315710e444f4e197c757070667b7d4562e4b4676d
+      flags: 0
+    RecentlyUsedSceneGuid-6:
+      value: 0005005300560f0b590f0a26497a0d44454e1e7c292d23677b2b4935b4b6643b
+      flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 56540c005c0c5e0b085f5d244126064413161a2e78797162757c4830b7b1356d
       flags: 0
     RecentlyUsedSceneGuid-8:
       value: 0100510000010a0e0c0c0e2744205c4446151d7d7e7d706878704c30b6b6376d

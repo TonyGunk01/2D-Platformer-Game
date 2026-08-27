@@ -18,32 +18,27 @@ public class LevelManager : MonoBehaviour
             instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
         else
-        {
             Destroy(gameObject);
-        }
     }
 
     private void Start()
     {
         if (GetLevelStatus(Levels[0]) == LevelStatus.Locked)
-        {
-            SetLevelStatus(Levels[0], LevelStatus.Unlocked);
-        }
+            SetLevelStatus(Levels[0], LevelStatus.Completed);
     }
 
     public void MarkCurrentLevelComplete()
     {
         Scene currentScene = SceneManager.GetActiveScene();
-        // set level status to completed
         SetLevelStatus(currentScene.name, LevelStatus.Completed);
 
         int currentSceneIndex = Array.FindIndex(Levels, level => level == currentScene.name);
         int nextSceneIndex = currentSceneIndex + 1;
+
         if (nextSceneIndex < Levels.Length)
-        {
             SetLevelStatus(Levels[nextSceneIndex], LevelStatus.Unlocked);
-        }
     }
 
     public LevelStatus GetLevelStatus(string level)
@@ -55,6 +50,5 @@ public class LevelManager : MonoBehaviour
     public void SetLevelStatus(string level, LevelStatus levelStatus)
     {
         PlayerPrefs.SetInt(level, (int)levelStatus);
-        Debug.Log("Setting Level: " + level + " Status: " + levelStatus);
     }
 }

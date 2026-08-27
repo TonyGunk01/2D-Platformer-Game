@@ -28,6 +28,7 @@ public class ChomperController : MonoBehaviour
     {
         targetPoint = pointB;
         GameObject player = GameObject.FindGameObjectWithTag("Player");
+
         if (player != null)
             playerTransform = player.transform;
 
@@ -56,20 +57,16 @@ public class ChomperController : MonoBehaviour
             float playerX = playerTransform.position.x;
             float chomperX = transform.position.x;
 
-            // Determine the direction to move
             float direction = Mathf.Sign(playerX - chomperX);
             float nextX = chomperX + direction * chaseSpeed * Time.deltaTime;
             Vector2 nextPosition = new Vector2(nextX, transform.position.y);
 
-            // Only move if there is ground with "Platform" tag under the next step
             if (IsGroundAtEdgeWithPlatformTag(nextPosition))
             {
                 Vector2 targetPosition = new Vector2(playerX, transform.position.y);
                 transform.position = Vector2.MoveTowards(transform.position, targetPosition, chaseSpeed * Time.deltaTime);
             }
-            // If not, stay at the edge and keep running animation
 
-            // Flip sprite to face player (even if not moving)
             Vector3 scale = transform.localScale;
 
             if (playerX < chomperX)
@@ -83,26 +80,22 @@ public class ChomperController : MonoBehaviour
 
         else
         {
-            // Patrol
             transform.position = Vector2.MoveTowards(transform.position, targetPoint.position, speed * Time.deltaTime);
 
-            // Flip sprite to face direction
             Vector3 scale = transform.localScale;
+
             if (targetPoint.position.x < transform.position.x)
                 scale.x = Mathf.Abs(scale.x);
+
             else
                 scale.x = -Mathf.Abs(scale.x);
             transform.localScale = scale;
 
-            // Switch target point when reached
             if (Vector2.Distance(transform.position, targetPoint.position) < 0.05f)
-            {
                 targetPoint = targetPoint == pointA ? pointB : pointA;
-            }
         }
     }
 
-    // Checks for ground with "Platform" tag at the given position
     private bool IsGroundAtEdgeWithPlatformTag(Vector2 checkPosition)
     {
         Vector2 checkPos = checkPosition + groundCheckOffset;
@@ -112,14 +105,13 @@ public class ChomperController : MonoBehaviour
 
     private bool IsPlayerInLineOfSight()
     {
-        // Allow detection within a larger vertical range (e.g., 2 units)
         float yThreshold = 2f;
         if (Mathf.Abs(playerTransform.position.y - transform.position.y) > yThreshold)
             return false;
 
-        // Raycast toward the player (not just along x)
         Vector2 origin = new Vector2(transform.position.x, transform.position.y);
         Vector2 direction = (playerTransform.position - transform.position).normalized;
+
         float distance = Vector2.Distance(transform.position, playerTransform.position);
 
         if (distance > sightDistance)

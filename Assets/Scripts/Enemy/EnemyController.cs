@@ -10,7 +10,6 @@ public class EnemyController : MonoBehaviour
 
         Animator animator = GetComponent<Animator>();
 
-        // If the player's CollisionCheck hits the enemy, kill the enemy and bounce the player
         if (collision.CompareTag("CollisionCheck"))
         {
             if (playerController != null)
@@ -19,24 +18,39 @@ public class EnemyController : MonoBehaviour
                     animator.SetTrigger("Dead");
 
                 if (gameObject.CompareTag("Chomper"))
-                {
                     SoundManager.Instance.Play(Sounds.ChomperDeath);
-                }
 
                 else if (gameObject.CompareTag("Gunner"))
-                {
                     SoundManager.Instance.Play(Sounds.GunnerDeath);
+
+                Collider2D enemyCollider = GetComponent<Collider2D>();
+                if (enemyCollider != null)
+                    enemyCollider.enabled = false;
+
+                Collider2D[] childColliders = GetComponentsInChildren<Collider2D>();
+                foreach (Collider2D childCol in childColliders)
+                {
+                    childCol.enabled = false;
                 }
 
-                Destroy(gameObject, 1.5f); // Kill the enemy after enemy death animation
-                playerController.Bounce();     // Make the player bounce (implement this in PlayerController if not present)
+                Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
+                if (rb2d != null)
+                {
+                    rb2d.simulated = false;
+                    rb2d.linearVelocity = Vector2.zero;
+                }
+
+                this.enabled = false;
+
+                Destroy(gameObject, 1.5f);
+                playerController.Bounce();
             }
         }
 
-        // Otherwise, if the player hits the enemy from the side, kill the player
         else if (collision.CompareTag("Player"))
         {
-            playerController.KillPlayer();
+            if (playerController != null && !playerController.isDead)
+                playerController.KillPlayer();
         }
     }
 }
