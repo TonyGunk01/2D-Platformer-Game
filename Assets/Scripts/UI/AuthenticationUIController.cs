@@ -32,6 +32,7 @@ public class AuthenticationUIController : MonoBehaviour
     public GameObject deletePopUp;
     public GameObject optionsPopUp;
     public GameObject startscreenPopUp;
+    public GameObject buttonPlay;
 
     [Header("Delete Account UI Elements")]
     public TMP_InputField deleteUser;
@@ -72,7 +73,7 @@ public class AuthenticationUIController : MonoBehaviour
         {
             string generatedKey = result.Split(':')[1];
             statusText.text = $"Account Created! Write down your recovery key: <color=yellow>{generatedKey}</color>";
-
+            buttonPlay.SetActive(true);
             ClearAllInputs();
         }
 
@@ -88,6 +89,7 @@ public class AuthenticationUIController : MonoBehaviour
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(keyInput))
         {
             statusText.text = "<color=red>Please fill in all fields.</color>";
+            ClearAllInputs();
             return;
         }
 
@@ -96,12 +98,14 @@ public class AuthenticationUIController : MonoBehaviour
         if (checkResult == "Username not found.")
         {
             statusText.text = "<color=red>Username not found.</color>";
+            ClearAllInputs();
             return;
         }
 
         else if (checkResult == "Invalid recovery key.")
         {
             statusText.text = "<color=red>Incorrect recovery key.</color>";
+            ClearAllInputs();
             return;
         }
 

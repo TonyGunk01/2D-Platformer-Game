@@ -124,7 +124,7 @@ public class LocalAuthenticationController : MonoBehaviour
             return "Passwords do not match.";
 
         if (!IsPasswordValid(password))
-            return "Password must be 8-16 characters and contain letters, numbers, and one special character (%, #, @).";
+            return "Password must be 8-16 characters and contain atleast one capital letter, numbers, and one special character (%, #, @).";
 
         string path = GetFilePath(username);
 
