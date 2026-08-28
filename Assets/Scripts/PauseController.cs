@@ -58,7 +58,7 @@ public class PauseController : MonoBehaviour
             rb2d.simulated = !isPaused;
 
         Time.timeScale = isPaused ? 0f : 1f;
-        // Save stats when game is paused
+        
         if (isPaused && playerController != null)
         {
             int coins = 0;

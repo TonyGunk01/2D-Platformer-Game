@@ -148,7 +148,9 @@ public class LocalAuthenticationController : MonoBehaviour
     public string ResetPasswordWithKey(string username, string recoveryKey, string newPassword, string confirmNewPassword)
     {
         string path = GetFilePath(username);
-        if (!File.Exists(path)) return "Username not found.";
+
+        if (!File.Exists(path)) 
+            return "Username not found.";
 
         string json = File.ReadAllText(path);
         UserAccountController account = JsonUtility.FromJson<UserAccountController>(json);

@@ -47,7 +47,6 @@ public class PlayerController : MonoBehaviour
         if (uiTimer != null)
             uiTimer.StopTimer();
 
-        // Save stats on player death
         int coins = 0;
         float time = 0f;
 

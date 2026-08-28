@@ -10,7 +10,6 @@ public class LevelOverController : MonoBehaviour
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
-            // Save stats when level is completed
             int coins = 0;
             float time = 0f;
 

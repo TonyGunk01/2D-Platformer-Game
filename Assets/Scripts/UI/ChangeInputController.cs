@@ -34,8 +34,6 @@ public class ChangeInputController : MonoBehaviour
         }
 
         else if (Input.GetKeyDown(KeyCode.Return))
-        {
             submitButton.onClick.Invoke();
-        }
     }
 }
