@@ -25,6 +25,11 @@ public class ScoreController : MonoBehaviour
         RefreshUI();
     }
 
+    public int GetScore()
+    {
+        return score;
+    }
+
     private void RefreshUI()
     {
         scoreText.text = "Score: " + score;

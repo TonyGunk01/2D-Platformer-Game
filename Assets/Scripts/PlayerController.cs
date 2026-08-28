@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public ScoreController scoreController;
     public GameMenuController gameMenuController;
+    public UIAdvancedTimer uiTimer;
     public float speed;
     public float jump;
     public bool isDead = false;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private float previousAnimatorSpeed = 1f;
     public TMP_Text displayText;
+    public GameObject gameStats;
 
     private void Awake()
     {
@@ -42,7 +44,23 @@ public class PlayerController : MonoBehaviour
         displayText.text = "<color=red>Game Over</color>";
         isDead = true;
 
+        if (uiTimer != null)
+            uiTimer.StopTimer();
+
+        // Save stats on player death
+        int coins = 0;
+        float time = 0f;
+
+        if (scoreController != null)
+            coins = scoreController.GetScore();
+
+        if (uiTimer != null)
+            time = uiTimer.GetCurrentTime();
+
+        StatsManager.SaveStats(coins, time);
+
         StartCoroutine(DeathSequenceRoutine());
+        gameStats.SetActive(false);
     }
 
     private IEnumerator DeathSequenceRoutine()
@@ -125,6 +143,7 @@ public class PlayerController : MonoBehaviour
             {
                 animator.SetBool("Jump", false);
                 animator.SetBool("Grounded", isGrounded);
+                gameStats.SetActive(true);
             }
         }
     }

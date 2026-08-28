@@ -7,8 +7,21 @@ public class LevelOverController : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerController>() != null)
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
         {
+            // Save stats when level is completed
+            int coins = 0;
+            float time = 0f;
+
+            if (player.scoreController != null)
+                coins = player.scoreController.GetScore();
+
+            if (player.uiTimer != null)
+                time = player.uiTimer.GetCurrentTime();
+
+            StatsManager.SaveStats(coins, time);
+
             LevelManager.Instance.MarkCurrentLevelComplete();
             int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
             if (currentSceneIndex <= 4)

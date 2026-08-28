@@ -12,6 +12,8 @@ public class PauseController : MonoBehaviour
     private PlayerController playerController;
     public TMP_Text displayText;
 
+    public GameObject gameStats;
+
     private void Awake()
     {
         if (animator == null)
@@ -37,6 +39,9 @@ public class PauseController : MonoBehaviour
         if (gameMenu != null)
             gameMenu.SetActive(isPaused);
 
+        if (gameStats != null)
+            gameStats.SetActive(!isPaused);
+
         if (animator != null)
         {
             if (isPaused)
@@ -53,5 +58,22 @@ public class PauseController : MonoBehaviour
             rb2d.simulated = !isPaused;
 
         Time.timeScale = isPaused ? 0f : 1f;
+        // Save stats when game is paused
+        if (isPaused && playerController != null)
+        {
+            int coins = 0;
+            float time = 0f;
+
+            if (playerController.scoreController != null)
+                coins = playerController.scoreController.GetScore();
+
+            if (playerController.uiTimer != null)
+                time = playerController.uiTimer.GetCurrentTime();
+
+            StatsManager.SaveStats(coins, time);
+        }
+
+        if (!isPaused && displayText != null)
+            displayText.text = string.Empty;
     }
 }
