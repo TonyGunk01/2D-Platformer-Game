@@ -153,6 +153,7 @@ public class LocalAuthenticationController : MonoBehaviour
             return "Username not found.";
 
         string json = File.ReadAllText(path);
+
         UserAccountController account = JsonUtility.FromJson<UserAccountController>(json);
 
         if (account.recoveryKey != HashString(recoveryKey.Trim()))
@@ -165,7 +166,9 @@ public class LocalAuthenticationController : MonoBehaviour
             return "New password does not meet criteria.";
 
         account.passwordHash = HashString(newPassword);
+
         File.WriteAllText(path, JsonUtility.ToJson(account, true));
+
         return "SUCCESS";
     }
 }

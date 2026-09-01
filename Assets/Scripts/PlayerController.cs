@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if (isDead) 
             return;
 
-        displayText.text = "<color=red>Game Over</color>";
+        displayText.text = "<color=red>Player Died!</color>";
         isDead = true;
 
         if (uiTimer != null)

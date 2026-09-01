@@ -61,16 +61,16 @@ public class PauseController : MonoBehaviour
         
         if (isPaused && playerController != null)
         {
-            int coins = 0;
+            int score = 0;
             float time = 0f;
 
             if (playerController.scoreController != null)
-                coins = playerController.scoreController.GetScore();
+                score = playerController.scoreController.GetScore();
 
             if (playerController.uiTimer != null)
                 time = playerController.uiTimer.GetCurrentTime();
 
-            StatsManager.SaveStats(coins, time);
+            StatsManager.SaveStats(score, time);
         }
 
         if (!isPaused && displayText != null)
