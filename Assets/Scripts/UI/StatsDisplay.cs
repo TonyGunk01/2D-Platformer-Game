@@ -26,7 +26,7 @@ public class StatsDisplay : MonoBehaviour
     private void OnStatsSavedHandler(int coins, float time)
     {
         if (timerText != null)
-            timerText.text = StatsManager.FormatTime(time);
+            timerText.text = "Time: " + StatsManager.FormatTime(time);
 
         if (scoreText != null)
             scoreText.text = "Score: " + coins;
