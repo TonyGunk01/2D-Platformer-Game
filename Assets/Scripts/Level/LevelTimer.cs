@@ -68,8 +68,6 @@ public class LevelTimer : MonoBehaviour
 
         PlayerPrefs.SetString($"LevelTime_{buildIndex}", ms.ToString());
         PlayerPrefs.Save();
-
-        UnityEngine.Debug.Log($"Level {buildIndex} time saved: {GetElapsedFormatted()} ({ms} ms)");
     }
 
     public long GetSavedTimeForLevel(int buildIndex)

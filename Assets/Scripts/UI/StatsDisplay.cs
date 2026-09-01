@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 
-// Displays stats and updates automatically when SaveStats is called
 public class StatsDisplay : MonoBehaviour
 {
     public TMP_Text timerText;
@@ -19,7 +18,6 @@ public class StatsDisplay : MonoBehaviour
 
     void Start()
     {
-        // initialize UI from stored values
         StatsManager.DisplayLastStats(timerText, scoreText);
     }
 
@@ -29,6 +27,7 @@ public class StatsDisplay : MonoBehaviour
     {
         if (timerText != null)
             timerText.text = StatsManager.FormatTime(time);
+
         if (scoreText != null)
             scoreText.text = "Score: " + coins;
     }

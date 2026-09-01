@@ -7,7 +7,6 @@ public static class StatsManager
 {
     private const string LastScoreKey = "LastScore";
     private const string LastTimeKey = "LastTime";
-    // Invoked after SaveStats completes. Parameters: (coins, timeSeconds)
     public static event Action<int, float> OnStatsSaved;
 
     public static void SaveStats(int score, float time)
@@ -15,8 +14,6 @@ public static class StatsManager
         PlayerPrefs.SetInt(LastScoreKey, score);
         PlayerPrefs.SetFloat(LastTimeKey, time);
         PlayerPrefs.Save();
-        Debug.Log($"Stats saved. Score={score}, Time={FormatTime(time)}");
-        // notify subscribers
         OnStatsSaved?.Invoke(score, time);
     }
 
@@ -24,9 +21,10 @@ public static class StatsManager
     {
         int lastScore = GetLastScore();
         float lastTime = GetLastTime();
-        Debug.Log($"Last Score: {lastScore}, Last Time={FormatTime(lastTime)}");
+
         if (timerText != null)
             timerText.text = FormatTime(lastTime);
+
         if (scoreText != null)
             scoreText.text = "Score: " + lastScore;
     }
