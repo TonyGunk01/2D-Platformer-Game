@@ -1710,7 +1710,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1773,10 +1773,10 @@ Tilemap:
     m_Data: {fileID: 21300006, guid: 44c1b3b37217c0b4bb07a979fc3b4714, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300020, guid: 44c1b3b37217c0b4bb07a979fc3b4714, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300014, guid: 44c1b3b37217c0b4bb07a979fc3b4714, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300014, guid: 44c1b3b37217c0b4bb07a979fc3b4714, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 7
     m_Data:
@@ -5101,8 +5101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17d75870b034f144199665b59f46c337, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayText: {fileID: 0}
-  nextLevelButton: {fileID: 0}
+  displayText: {fileID: 4200782539215006375}
+  nextLevelButton: {fileID: 4200782539215006376}
 --- !u!61 &1304567213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7397,6 +7397,16 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+  - first: {x: 22, y: 16, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 6
+      m_TileSpriteIndex: 6
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
   - first: {x: 0, y: 23, z: 0}
     second:
       serializedVersion: 2
@@ -7441,6 +7451,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 2f8c979f0b9be1d498a37203a22c530e, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 199966715f4e22f40a085b551a225b42, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: ebc7b3cc433b84347a75e30a70a176ec, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 1
     m_Data: {fileID: 21300002, guid: 76465a0a33addfa4686beca3ade8fc17, type: 3}
@@ -7454,8 +7466,10 @@ Tilemap:
     m_Data: {fileID: 21300004, guid: 76465a0a33addfa4686beca3ade8fc17, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300006, guid: 76465a0a33addfa4686beca3ade8fc17, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300014, guid: 76465a0a33addfa4686beca3ade8fc17, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data:
       e00: 1
       e01: 0
@@ -7474,7 +7488,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 7
+  - m_RefCount: 8
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -8332,7 +8346,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 727794580}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 1034420926291836097, guid: 5384e91a20093d0459c80108cfc20453, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5384e91a20093d0459c80108cfc20453, type: 3}
@@ -8366,6 +8381,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &4200782539215006376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4200782537526807344, guid: 5384e91a20093d0459c80108cfc20453,
+    type: 3}
+  m_PrefabInstance: {fileID: 4200782539215006372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5691267107899676383
 PrefabInstance:
   m_ObjectHideFlags: 0
