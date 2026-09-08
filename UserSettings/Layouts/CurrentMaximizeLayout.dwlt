@@ -23,7 +23,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 80
+  controlID: 577
   draggingID: 0
 --- !u!114 &2
 MonoBehaviour:
@@ -94,8 +94,8 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMin: 1
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
-    m_HSlider: 1
-    m_VSlider: 1
+    m_HSlider: 0
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoomHorizontal: 0
@@ -108,18 +108,18 @@ MonoBehaviour:
       y: 21
       width: 823
       height: 432.2
-    m_Scale: {x: 0.5773005, y: 0.5773005}
-    m_Translation: {x: 383.31674, y: 199.08952}
+    m_Scale: {x: 0.5002315, y: 0.5002315}
+    m_Translation: {x: 411.5, y: 216.1}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -663.9813
-      y: -344.8629
-      width: 1425.6007
-      height: 748.6569
+      x: -822.61914
+      y: -432
+      width: 1645.2383
+      height: 864
     m_MinimalGUI: 1
   m_defaultScale: 0.5002315
   m_LastWindowPixelSize: {x: 1028.75, y: 566.5}
@@ -153,7 +153,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 112}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 81
+  controlID: 578
   draggingID: 0
 --- !u!114 &4
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 56}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 82
+  controlID: 476
   draggingID: 0
 --- !u!114 &5
 MonoBehaviour:
@@ -1037,7 +1037,7 @@ MonoBehaviour:
     m_CachedPref: -151
     m_ControlHash: 1412526313
     m_PrefName: Preview_InspectorPreview
-  m_LastInspectedObjectInstanceID: 40690
+  m_LastInspectedObjectInstanceID: 29148
   m_LastVerticalScrollValue: 0
   m_GlobalObjectId: 
   m_InspectorMode: 0
@@ -1068,7 +1068,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 56}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 118
+  controlID: 579
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -1089,8 +1089,8 @@ MonoBehaviour:
     y: 0
     width: 822.4
     height: 237.59998
-  m_MinSize: {x: 101, y: 126}
-  m_MaxSize: {x: 4001, y: 4026}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -1502,6 +1502,7 @@ MonoBehaviour:
     - m_Data: 40060
     - m_Data: 40062
     - m_Data: 40064
+    - m_Data: 1000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1529,9 +1530,9 @@ MonoBehaviour:
       m_ResourceFile: 
   m_ListAreaState:
     m_SelectedInstanceIDs:
-    - m_Data: 40690
-    m_LastClickedInstanceID: 40690
-    m_HadKeyboardFocusLastEvent: 1
+    - m_Data: 29148
+    m_LastClickedInstanceID: 29148
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs:
     - m_Data: 45504
     - m_Data: 40946
