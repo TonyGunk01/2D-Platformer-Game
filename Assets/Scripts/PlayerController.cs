@@ -67,10 +67,22 @@ public class PlayerController : MonoBehaviour
         if (animator != null)
             animator.SetBool("Dead", true);
 
+        bool currentlyGrounded = false;
+        if (groundCheck != null)
+            currentlyGrounded = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
+
+        if (!currentlyGrounded)
+        {
+            while (groundCheck != null && !Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer))
+                yield return new WaitForFixedUpdate();
+        }
+        else
+        {
+            yield return new WaitForSeconds(1.5f);
+        }
+
         if (rb2d != null)
             rb2d.simulated = false;
-
-        yield return new WaitForSeconds(1.5f);
 
         if (gameMenuController != null)
         {

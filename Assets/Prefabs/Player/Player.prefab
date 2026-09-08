@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.014122158, y: 0.4249154}
+  m_Offset: {x: 0.014122158, y: 0.58}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -285,6 +285,7 @@ MonoBehaviour:
   animator: {fileID: 7853376602739842786}
   scoreController: {fileID: 0}
   gameMenuController: {fileID: 0}
+  uiTimer: {fileID: 0}
   speed: 10
   jump: 135
   isDead: 0
@@ -294,6 +295,7 @@ MonoBehaviour:
   groundCheck: {fileID: 304898949}
   groundCheckRadius: 0.25
   displayText: {fileID: 0}
+  gameStats: {fileID: 0}
 --- !u!114 &3453610755571633403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -311,3 +313,4 @@ MonoBehaviour:
   animator: {fileID: 7853376602739842786}
   rb2d: {fileID: 1923555249}
   displayText: {fileID: 0}
+  gameStats: {fileID: 0}

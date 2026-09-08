@@ -22,6 +22,7 @@ public class ChomperController : MonoBehaviour
 
     private Transform targetPoint;
     private Transform playerTransform;
+    private PlayerController playerController;
     private Animator animator;
 
     private void Start()
@@ -30,7 +31,10 @@ public class ChomperController : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
+        {
             playerTransform = player.transform;
+            playerController = player.GetComponent<PlayerController>();
+        }
 
         animator = GetComponent<Animator>();
     }
@@ -53,7 +57,8 @@ public class ChomperController : MonoBehaviour
             return;
         }
 
-        bool chasing = playerTransform != null && IsPlayerInLineOfSight();
+        // Do not chase if the player has died
+        bool chasing = playerTransform != null && (playerController == null || !playerController.isDead) && IsPlayerInLineOfSight();
 
         if (animator != null)
         {

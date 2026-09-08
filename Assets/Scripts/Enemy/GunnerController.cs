@@ -13,6 +13,7 @@ public class GunnerController : MonoBehaviour
 
     private Animator animator;
     private Transform playerTransform;
+    private PlayerController playerController;
     private float fireCooldown = 0f;
 
     private void Start()
@@ -21,16 +22,20 @@ public class GunnerController : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
 
         if (player != null)
+        {
             playerTransform = player.transform;
+            playerController = player.GetComponent<PlayerController>();
+        }
     }
 
     private void Update()
     {
         bool isDead = animator != null && animator.GetBool("Dead");
 
-        bool playerDetected = !isDead && playerTransform != null && IsPlayerInLineOfSight();
+        // Disable detection if enemy is dead or player has died
+        bool playerDetected = !isDead && playerTransform != null && (playerController == null || !playerController.isDead) && IsPlayerInLineOfSight();
 
-        if (playerTransform != null && !isDead)
+        if (playerTransform != null && !isDead && (playerController == null || !playerController.isDead))
             FacePlayer();
 
         if (animator != null)
