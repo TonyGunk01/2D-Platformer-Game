@@ -40,6 +40,19 @@ public class ChomperController : MonoBehaviour
         if (pointA == null || pointB == null)
             return;
 
+        bool isDead = animator != null && animator.GetBool("Dead");
+
+        if (isDead)
+        {
+            if (animator != null)
+            {
+                animator.SetBool("Chasing", false);
+                animator.SetBool("Patrolling", false);
+            }
+
+            return;
+        }
+
         bool chasing = playerTransform != null && IsPlayerInLineOfSight();
 
         if (animator != null)

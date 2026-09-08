@@ -26,7 +26,6 @@ public class GunnerController : MonoBehaviour
 
     private void Update()
     {
-        // If animator indicates this enemy is dead, stop all detection and firing
         bool isDead = animator != null && animator.GetBool("Dead");
 
         bool playerDetected = !isDead && playerTransform != null && IsPlayerInLineOfSight();
@@ -39,7 +38,6 @@ public class GunnerController : MonoBehaviour
 
         if (isDead)
         {
-            // ensure we don't continue firing after death
             fireCooldown = 0f;
             return;
         }
