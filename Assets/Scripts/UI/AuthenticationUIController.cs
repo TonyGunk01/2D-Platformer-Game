@@ -122,7 +122,6 @@ public class AuthenticationUIController : MonoBehaviour
             changePswdPopUp.SetActive(true);
     }
 
-
     public void OnClickChangePasswordSubmit()
     {
         string result = authenticationSystem.ResetPasswordWithKey(
