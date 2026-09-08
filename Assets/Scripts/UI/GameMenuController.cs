@@ -6,13 +6,12 @@ using UnityEngine.UI;
 
 public class GameMenuController : MonoBehaviour
 {
-    public Button buttonRestart, buttonMainMenu, buttonQuit; 
+    public Button buttonRestart, buttonMainMenu; 
 
     public void Awake()
     {
         buttonRestart.onClick.AddListener(RespawnPlayer);
         buttonMainMenu.onClick.AddListener(MainMenu);
-        buttonQuit.onClick.AddListener(QuitGame);
     }
 
     public void PlayerDied()
@@ -31,10 +30,5 @@ public class GameMenuController : MonoBehaviour
     public void MainMenu()
     {
         SceneManager.LoadScene("Main Menu");
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 }

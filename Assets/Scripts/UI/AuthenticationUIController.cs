@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class AuthenticationUIController : MonoBehaviour
@@ -51,10 +52,10 @@ public class AuthenticationUIController : MonoBehaviour
             statusText.text = "<color=green>Login Successful!</color>";
             ClearAllInputs();
 
-            if (levelSelectionPopUp != null)
-                levelSelectionPopUp.SetActive(true);
+            StartCoroutine(LoadLoggedInAfterDelay(2f));
 
-            loginPopUp.SetActive(false);
+            if (loginPopUp != null)
+                loginPopUp.SetActive(false);
         }
 
         else
@@ -79,6 +80,22 @@ public class AuthenticationUIController : MonoBehaviour
 
         else
             statusText.text = $"<color=red>{result}</color>";
+    }
+
+    public void OnClickPlayFromRegister()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    private System.Collections.IEnumerator LoadLoggedInAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void OnClickLogout()
+    {
+        SceneManager.LoadScene("Home Page");
     }
 
     public void OnClickVerifyKeySubmit()

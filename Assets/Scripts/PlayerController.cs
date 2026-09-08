@@ -67,7 +67,6 @@ public class PlayerController : MonoBehaviour
         if (animator != null)
             animator.SetBool("Dead", true);
 
-        // Wait a fixed 1.5 seconds before proceeding with death sequence
         yield return new WaitForSeconds(1.5f);
 
         if (rb2d != null)
