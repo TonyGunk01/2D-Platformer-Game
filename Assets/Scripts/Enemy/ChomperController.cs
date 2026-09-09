@@ -57,7 +57,6 @@ public class ChomperController : MonoBehaviour
             return;
         }
 
-        // Do not chase if the player has died
         bool chasing = playerTransform != null && (playerController == null || !playerController.isDead) && IsPlayerInLineOfSight();
 
         if (animator != null)
@@ -107,6 +106,7 @@ public class ChomperController : MonoBehaviour
 
             else
                 scale.x = -Mathf.Abs(scale.x);
+
             transform.localScale = scale;
 
             if (Vector2.Distance(transform.position, targetPoint.position) < 0.05f)
@@ -124,6 +124,7 @@ public class ChomperController : MonoBehaviour
     private bool IsPlayerInLineOfSight()
     {
         float yThreshold = 2f;
+
         if (Mathf.Abs(playerTransform.position.y - transform.position.y) > yThreshold)
             return false;
 
@@ -136,6 +137,7 @@ public class ChomperController : MonoBehaviour
             return false;
 
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, distance, ~obstacleMask);
+
         if (hit.collider != null && hit.collider.gameObject.CompareTag("Player"))
             return true;
 

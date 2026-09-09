@@ -10,7 +10,6 @@ public class LevelLoader : MonoBehaviour
     private Button button;
     public string LevelName;
 
-    // optional UI elements to show locked/completed visuals (assign in inspector)
     public GameObject LockedIcon;
     public GameObject CompletedIcon;
 

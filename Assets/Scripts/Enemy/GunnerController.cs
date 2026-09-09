@@ -32,7 +32,6 @@ public class GunnerController : MonoBehaviour
     {
         bool isDead = animator != null && animator.GetBool("Dead");
 
-        // Disable detection if enemy is dead or player has died
         bool playerDetected = !isDead && playerTransform != null && (playerController == null || !playerController.isDead) && IsPlayerInLineOfSight();
 
         if (playerTransform != null && !isDead && (playerController == null || !playerController.isDead))
@@ -57,10 +56,9 @@ public class GunnerController : MonoBehaviour
                 fireCooldown = 1f / fireRate;
             }
         }
+
         else
-        {
             fireCooldown = 0f;
-        }
     }
 
     private bool IsPlayerInLineOfSight()

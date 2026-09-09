@@ -43,7 +43,6 @@ public class LevelManager : MonoBehaviour
     {
         if (Levels != null && Levels.Length > 0)
         {
-            // migrate device-wide progress into per-user namespace if needed
             MigrateDeviceProgressIfNeeded();
 
             if (GetLevelStatus(Levels[0]) == LevelStatus.Locked)
@@ -95,31 +94,13 @@ public class LevelManager : MonoBehaviour
         return GetLevelStatus(level) == LevelStatus.Completed;
     }
 
-    // Debug helper: logs all level statuses for the current user
-    public void LogAllLevelStatuses()
-    {
-        if (Levels == null)
-        {
-            Debug.Log("LevelManager: Levels array is null.");
-            return;
-        }
-
-        for (int i = 0; i < Levels.Length; i++)
-        {
-            string level = Levels[i];
-            Debug.Log($"Level status for '{level}' (user '{CurrentUserId}'): {GetLevelStatus(level)}");
-        }
-    }
-
     public void ResetProgress()
     {
         if (Levels == null)
             return;
 
         for (int i = 0; i < Levels.Length; i++)
-        {
             PlayerPrefs.DeleteKey(GetKey(Levels[i]));
-        }
 
         if (Levels.Length > 0)
             SetLevelStatus(Levels[0], LevelStatus.Unlocked);
@@ -130,7 +111,6 @@ public class LevelManager : MonoBehaviour
         if (Levels == null || Levels.Length == 0)
             return;
 
-        // if first level already has per-user key, assume migrated
         if (PlayerPrefs.HasKey(GetKey(Levels[0])))
             return;
 
@@ -151,7 +131,6 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.Save();
     }
 
-    // Ensure current user has initial progress set (migrate any device keys and unlock first level)
     public void EnsureUserInitialized()
     {
         if (Levels == null || Levels.Length == 0)
