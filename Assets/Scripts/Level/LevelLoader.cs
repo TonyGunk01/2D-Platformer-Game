@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 [RequireComponent(typeof(Button))]
 public class LevelLoader : MonoBehaviour
@@ -12,6 +14,8 @@ public class LevelLoader : MonoBehaviour
 
     public GameObject LockedIcon;
     public GameObject CompletedIcon;
+    public TMP_Text ScoreText;
+    public TMP_Text TimeText;
 
     private void Awake()
     {
@@ -44,7 +48,27 @@ public class LevelLoader : MonoBehaviour
         if (CompletedIcon != null)
             CompletedIcon.SetActive(status == LevelStatus.Completed);
 
+        if (ScoreText != null)
+        {
+            int score = LevelManager.Instance.GetLevelScore(LevelName);
+            ScoreText.text = score >= 0 ? score.ToString() : "--";
+        }
+
+        if (TimeText != null)
+        {
+            float time = LevelManager.Instance.GetLevelTime(LevelName);
+            TimeText.text = time >= 0f ? FormatTime(time) : "--";
+        }
+
         Debug.Log($"LevelLoader: {LevelName} status={status} (interactable={button.interactable}) for user {LevelManager.Instance.CurrentUserId}");
+    }
+
+    private string FormatTime(float seconds)
+    {
+        TimeSpan t = TimeSpan.FromSeconds(seconds);
+        if (t.TotalHours >= 1)
+            return t.ToString("h\\:mm\\:ss");
+        return t.ToString("mm\\:ss");
     }
 
     private void onClick()

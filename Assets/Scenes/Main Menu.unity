@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 46856439}
   - component: {fileID: 46856438}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Level 1 Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1401,7 +1401,7 @@ GameObject:
   - component: {fileID: 505485899}
   - component: {fileID: 505485898}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Level 2 Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2739,7 +2739,7 @@ GameObject:
   - component: {fileID: 897999106}
   - component: {fileID: 897999105}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: Level 2 Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3125,7 +3125,7 @@ GameObject:
   - component: {fileID: 959168073}
   - component: {fileID: 959168072}
   m_Layer: 5
-  m_Name: Text (TMP) (4)
+  m_Name: Level 5 Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3854,7 +3854,7 @@ GameObject:
   - component: {fileID: 1068277767}
   - component: {fileID: 1068277766}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: Level 4 Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3992,7 +3992,7 @@ GameObject:
   - component: {fileID: 1070667105}
   - component: {fileID: 1070667104}
   m_Layer: 5
-  m_Name: Text (TMP) (4)
+  m_Name: Level 5 Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5268,7 +5268,7 @@ GameObject:
   - component: {fileID: 1406206133}
   - component: {fileID: 1406206132}
   m_Layer: 5
-  m_Name: Text (TMP) (3)
+  m_Name: Level 4 Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7035,7 +7035,7 @@ GameObject:
   - component: {fileID: 1764829161}
   - component: {fileID: 1764829160}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Level 3 Time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7173,7 +7173,7 @@ GameObject:
   - component: {fileID: 1794437728}
   - component: {fileID: 1794437727}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: Level 3 Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8658,7 +8658,7 @@ GameObject:
   - component: {fileID: 2057068103}
   - component: {fileID: 2057068102}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Level 1 Score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9017,8 +9017,62 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3102440330220377185, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2128489667835445322}
   m_SourcePrefab: {fileID: 100100000, guid: 7d9d61b8a706b0348b6eea72141a05d4, type: 3}
+--- !u!1 &2128489667835445321 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3102440330220377185, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2128489667835445320}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2128489667835445322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2128489667835445321}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 0}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4615078291307184980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9390,6 +9444,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2359397453235893605, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: TimeText
+      value: 
+      objectReference: {fileID: 897999105}
+    - target: {fileID: 2359397453235893605, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 505485898}
+    - target: {fileID: 3753032444865169645, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: TimeText
+      value: 
+      objectReference: {fileID: 1406206132}
+    - target: {fileID: 3753032444865169645, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 1068277766}
     - target: {fileID: 4146623828159804406, guid: f7f5c96c29969194ebec0110cdc28b96,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9530,6 +9604,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5411949596219592562, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: TimeText
+      value: 
+      objectReference: {fileID: 46856438}
+    - target: {fileID: 5411949596219592562, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 2057068102}
     - target: {fileID: 5675524085665524008, guid: f7f5c96c29969194ebec0110cdc28b96,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -9610,6 +9694,16 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.4490565
       objectReference: {fileID: 0}
+    - target: {fileID: 5936884074790801752, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: TimeText
+      value: 
+      objectReference: {fileID: 1764829160}
+    - target: {fileID: 5936884074790801752, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 1794437727}
     - target: {fileID: 6989288217379207795, guid: f7f5c96c29969194ebec0110cdc28b96,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -9670,6 +9764,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7701491329389150504, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: TimeText
+      value: 
+      objectReference: {fileID: 1070667104}
+    - target: {fileID: 7701491329389150504, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: ScoreText
+      value: 
+      objectReference: {fileID: 959168072}
     - target: {fileID: 7819734458226752707, guid: f7f5c96c29969194ebec0110cdc28b96,
         type: 3}
       propertyPath: m_AnchorMax.y

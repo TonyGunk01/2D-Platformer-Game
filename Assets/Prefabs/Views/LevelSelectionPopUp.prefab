@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.16815, y: -442.48004}
+  m_AnchoredPosition: {x: 889.16815, y: -705.98004}
   m_SizeDelta: {x: 404.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8711798238638165822
@@ -135,6 +135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Level 3
+  LockedIcon: {fileID: 0}
+  CompletedIcon: {fileID: 0}
+  ScoreText: {fileID: 0}
+  TimeText: {fileID: 0}
 --- !u!1 &1758481145330752689
 GameObject:
   m_ObjectHideFlags: 0
@@ -246,7 +250,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.16815, y: -592.48004}
+  m_AnchoredPosition: {x: 889.16815, y: -855.98004}
   m_SizeDelta: {x: 404.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1258570514596820097
@@ -344,6 +348,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Level 4
+  LockedIcon: {fileID: 0}
+  CompletedIcon: {fileID: 0}
+  ScoreText: {fileID: 0}
+  TimeText: {fileID: 0}
 --- !u!1 &3164622913127913422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,7 +1124,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.16815, y: -742.48004}
+  m_AnchoredPosition: {x: 889.16815, y: -1005.98004}
   m_SizeDelta: {x: 404.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7436167492236122102
@@ -1214,6 +1222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Level 5
+  LockedIcon: {fileID: 0}
+  CompletedIcon: {fileID: 0}
+  ScoreText: {fileID: 0}
+  TimeText: {fileID: 0}
 --- !u!1 &8206361642347276495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,7 +1263,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.16815, y: -142.48004}
+  m_AnchoredPosition: {x: 889.16815, y: -405.98004}
   m_SizeDelta: {x: 404.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8874954949404112251
@@ -1349,6 +1361,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Level 1
+  LockedIcon: {fileID: 0}
+  CompletedIcon: {fileID: 0}
+  ScoreText: {fileID: 0}
+  TimeText: {fileID: 0}
 --- !u!1 &8959708143531889557
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.16815, y: -292.48004}
+  m_AnchoredPosition: {x: 889.16815, y: -555.98004}
   m_SizeDelta: {x: 404.6, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &972575766302792320
@@ -1484,3 +1500,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelName: Level 2
+  LockedIcon: {fileID: 0}
+  CompletedIcon: {fileID: 0}
+  ScoreText: {fileID: 0}
+  TimeText: {fileID: 0}

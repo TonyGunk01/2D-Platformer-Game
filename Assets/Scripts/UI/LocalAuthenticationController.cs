@@ -53,6 +53,39 @@ public class LocalAuthenticationController : MonoBehaviour
         try
         {
             File.Delete(path);
+
+            // remove per-user PlayerPrefs entries for this user (levels, scores, times)
+            string userId = username.ToLower().Trim();
+            try
+            {
+                var lm = UnityEngine.Object.FindObjectOfType<LevelManager>();
+                if (lm != null && lm.Levels != null)
+                {
+                    foreach (var lvl in lm.Levels)
+                    {
+                        if (string.IsNullOrEmpty(lvl))
+                            continue;
+
+                        PlayerPrefs.DeleteKey($"{userId}_{lvl}");
+                        PlayerPrefs.DeleteKey($"{userId}_{lvl}_score");
+                        PlayerPrefs.DeleteKey($"{userId}_{lvl}_time");
+                    }
+                }
+            }
+            catch (System.Exception)
+            {
+                // ignore any issues deleting prefs
+            }
+
+            // if deleted account was current user, clear current user key
+            string current = PlayerPrefs.GetString("CurrentUser", "");
+            if (!string.IsNullOrEmpty(current) && current == userId)
+            {
+                PlayerPrefs.DeleteKey("CurrentUser");
+            }
+
+            PlayerPrefs.Save();
+
             return "SUCCESS";
         }
 
