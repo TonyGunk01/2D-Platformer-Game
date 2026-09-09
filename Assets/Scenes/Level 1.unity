@@ -5878,7 +5878,14 @@ PrefabInstance:
       propertyPath: nextLevelButton
       value: 
       objectReference: {fileID: 4200782539215006374}
-    m_RemovedComponents: []
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: FirstPlayableLevel
+      value: Main Menu
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1418708459139779247, guid: 7d9d61b8a706b0348b6eea72141a05d4, type: 3}
+    - {fileID: 7775456511358659945, guid: 7d9d61b8a706b0348b6eea72141a05d4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -6848,6 +6855,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelLoader
   LevelName: Level 2
+  LockedIcon: {fileID: 0}
+  CompletedIcon: {fileID: 0}
 --- !u!1001 &5691267107899676383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6959,9 +6968,9 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 1866912134}
   - {fileID: 1829154436}
   - {fileID: 659489674}
   - {fileID: 1693407383}
   - {fileID: 1407145805}
-  - {fileID: 1866912134}
   - {fileID: 3493097218802700551}

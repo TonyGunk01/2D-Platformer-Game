@@ -112,7 +112,20 @@ public class LocalAuthenticationController : MonoBehaviour
         string json = File.ReadAllText(path);
         UserAccountController account = JsonUtility.FromJson<UserAccountController>(json);
 
-        return account.passwordHash == HashString(password);
+        bool ok = account.passwordHash == HashString(password);
+        if (ok)
+        {
+            PlayerPrefs.SetString("CurrentUser", username.ToLower().Trim());
+            PlayerPrefs.Save();
+
+            // initialize per-user progress if LevelManager exists
+            if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().isLoaded && UnityEngine.Object.FindObjectOfType<LevelManager>() != null)
+            {
+                LevelManager.Instance.EnsureUserInitialized();
+            }
+        }
+
+        return ok;
     }
 
     public string CreateAccount(string username, string password, string confirmPassword)
@@ -142,6 +155,16 @@ public class LocalAuthenticationController : MonoBehaviour
 
         File.WriteAllText(path, JsonUtility.ToJson(newAccount, true));
 
+        // set current user to newly created account
+        PlayerPrefs.SetString("CurrentUser", newAccount.username.ToLower().Trim());
+        PlayerPrefs.Save();
+
+        // initialize per-user progress if LevelManager exists
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().isLoaded && UnityEngine.Object.FindObjectOfType<LevelManager>() != null)
+        {
+            LevelManager.Instance.EnsureUserInitialized();
+        }
+
         return $"SUCCESS:{strictKey}";
     }
 
@@ -170,5 +193,12 @@ public class LocalAuthenticationController : MonoBehaviour
         File.WriteAllText(path, JsonUtility.ToJson(account, true));
 
         return "SUCCESS";
+    }
+
+    // Call from UI Log Out button: clears current user and returns to guest state
+    public void Logout()
+    {
+        PlayerPrefs.DeleteKey("CurrentUser");
+        PlayerPrefs.Save();
     }
 }
