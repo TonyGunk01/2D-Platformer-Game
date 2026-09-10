@@ -169,17 +169,32 @@ public class LevelManager : MonoBehaviour
             return;
 
         string scoreKey = GetKey(level) + "_score";
-        int prevScore = PlayerPrefs.GetInt(scoreKey, -1);
-
-        if (score > prevScore)
-            PlayerPrefs.SetInt(scoreKey, score);
-
         string timeKey = GetKey(level) + "_time";
+
+        int prevScore = PlayerPrefs.GetInt(scoreKey, -1);
         float prevTime = PlayerPrefs.GetFloat(timeKey, -1f);
 
-        if (prevTime < 0f || timeSeconds < prevTime)
-            PlayerPrefs.SetFloat(timeKey, timeSeconds);
+        bool shouldSave = false;
 
+        // If no previous score/time saved, always save
+        if (prevScore < 0)
+            shouldSave = true;
+        else if (score > prevScore)
+            shouldSave = true;
+        else if (score == prevScore)
+        {
+            // if same score, prefer the shorter time (or save if no previous time)
+            if (prevTime < 0f || timeSeconds < prevTime)
+                shouldSave = true;
+        }
+
+        if (shouldSave)
+        {
+            PlayerPrefs.SetInt(scoreKey, score);
+            PlayerPrefs.SetFloat(timeKey, timeSeconds);
+        }
+
+        // mark level completed regardless of whether we updated bests
         SetLevelStatus(level, LevelStatus.Completed);
         PlayerPrefs.Save();
     }

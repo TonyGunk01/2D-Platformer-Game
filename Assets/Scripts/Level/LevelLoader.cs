@@ -30,7 +30,8 @@ public class LevelLoader : MonoBehaviour
 
     private void UpdateButtonState()
     {
-        if (button == null) button = GetComponent<Button>();
+        if (button == null) 
+            button = GetComponent<Button>();
 
         if (LevelManager.Instance == null)
         {
@@ -51,24 +52,25 @@ public class LevelLoader : MonoBehaviour
         if (ScoreText != null)
         {
             int score = LevelManager.Instance.GetLevelScore(LevelName);
-            ScoreText.text = score >= 0 ? score.ToString() : "--";
+            ScoreText.text = score >= 0 ? score.ToString() : "-";
         }
 
         if (TimeText != null)
         {
             float time = LevelManager.Instance.GetLevelTime(LevelName);
-            TimeText.text = time >= 0f ? FormatTime(time) : "--";
+            TimeText.text = time >= 0f ? FormatTime(time) : "-";
         }
-
-        Debug.Log($"LevelLoader: {LevelName} status={status} (interactable={button.interactable}) for user {LevelManager.Instance.CurrentUserId}");
     }
 
     private string FormatTime(float seconds)
     {
-        TimeSpan t = TimeSpan.FromSeconds(seconds);
-        if (t.TotalHours >= 1)
-            return t.ToString("h\\:mm\\:ss");
-        return t.ToString("mm\\:ss");
+        // Format as minutes:seconds:milliseconds (mm:ss:fff)
+        int totalMilliseconds = Mathf.Max(0, Mathf.RoundToInt(seconds * 1000f));
+        int minutes = totalMilliseconds / 60000;
+        int secs = (totalMilliseconds % 60000) / 1000;
+        int centis = (totalMilliseconds % 1000) / 10; // two-digit centiseconds
+
+        return string.Format("{0:00}:{1:00}:{2:00}", minutes, secs, centis);
     }
 
     private void onClick()

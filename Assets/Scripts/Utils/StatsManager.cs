@@ -34,9 +34,9 @@ public static class StatsManager
         var totalMilliseconds = Mathf.Max(0, Mathf.RoundToInt(timeSeconds * 1000f));
         var minutes = totalMilliseconds / 60000;
         var seconds = (totalMilliseconds % 60000) / 1000;
-        var milliseconds = (totalMilliseconds % 1000) / 10;
+        var centiseconds = (totalMilliseconds % 1000) / 10;
 
-        return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+        return string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, centiseconds);
     }
 
     public static int GetLastScore()
