@@ -189,7 +189,7 @@ public class AuthenticationUIController : MonoBehaviour
             statusText.text = $"<color=red>{result}</color>";
     }
 
-    private void ClearAllInputs()
+    public void ClearAllInputs()
     {
         loginUser.text = ""; loginPass.text = "";
         regUser.text = ""; regPass.text = ""; regPassConfirm.text = "";
