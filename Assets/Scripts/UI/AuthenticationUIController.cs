@@ -9,6 +9,7 @@ public class AuthenticationUIController : MonoBehaviour
     public TMP_Text statusText;
 
     [Header("Login UI Elements")]
+
     public TMP_InputField loginUser;
     public TMP_InputField loginPass;
 
@@ -73,7 +74,7 @@ public class AuthenticationUIController : MonoBehaviour
         if (result.StartsWith("SUCCESS:"))
         {
             string generatedKey = result.Split(':')[1];
-            statusText.text = $"Account Created! Write down your recovery key: <color=yellow>{generatedKey}</color>";
+            statusText.text = $"Account Created! Write down your recovery key: <color=yellow><font=\"LiberationSans SDF\">{generatedKey}</font></color>";
             buttonPlay.SetActive(true);
             ClearAllInputs();
         }
@@ -189,7 +190,7 @@ public class AuthenticationUIController : MonoBehaviour
             statusText.text = $"<color=red>{result}</color>";
     }
 
-    public void ClearAllInputs()
+    private void ClearAllInputs()
     {
         loginUser.text = ""; loginPass.text = "";
         regUser.text = ""; regPass.text = ""; regPassConfirm.text = "";
