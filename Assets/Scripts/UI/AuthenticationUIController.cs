@@ -34,6 +34,7 @@ public class AuthenticationUIController : MonoBehaviour
     public GameObject deletePopUp;
     public GameObject optionsPopUp;
     public GameObject startscreenPopUp;
+    public GameObject buttonCreate;
     public GameObject buttonPlay;
 
     [Header("Delete Account UI Elements")]
@@ -74,7 +75,8 @@ public class AuthenticationUIController : MonoBehaviour
         if (result.StartsWith("SUCCESS:"))
         {
             string generatedKey = result.Split(':')[1];
-            statusText.text = $"Account Created! Write down your recovery key: <color=yellow><font=\"LiberationSans SDF\">{generatedKey}</font></color>";
+            statusText.text = $"<color=green>Account Created! Write down your recovery key: <color=yellow><font=\"LiberationSans SDF\">{generatedKey}</font></color>";
+            buttonCreate.SetActive(false);
             buttonPlay.SetActive(true);
             ClearAllInputs();
         }

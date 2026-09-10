@@ -7916,7 +7916,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AuthenticationUIController
   authenticationSystem: {fileID: 354633204}
   statusText: {fileID: 1391531171}
-  recoveryKeyText: {fileID: 0}
   loginUser: {fileID: 1374464573}
   loginPass: {fileID: 1720959844}
   regUser: {fileID: 1520324555}
@@ -7933,6 +7932,7 @@ MonoBehaviour:
   deletePopUp: {fileID: 1180834031}
   optionsPopUp: {fileID: 1315051238}
   startscreenPopUp: {fileID: 715012910}
+  buttonCreate: {fileID: 223972278}
   buttonPlay: {fileID: 514639291}
   deleteUser: {fileID: 1401430384}
   deleteKey: {fileID: 270111711}
