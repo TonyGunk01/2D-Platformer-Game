@@ -64,11 +64,10 @@ public class LevelLoader : MonoBehaviour
 
     private string FormatTime(float seconds)
     {
-        // Format as minutes:seconds:milliseconds (mm:ss:fff)
         int totalMilliseconds = Mathf.Max(0, Mathf.RoundToInt(seconds * 1000f));
         int minutes = totalMilliseconds / 60000;
         int secs = (totalMilliseconds % 60000) / 1000;
-        int centis = (totalMilliseconds % 1000) / 10; // two-digit centiseconds
+        int centis = (totalMilliseconds % 1000) / 10;
 
         return string.Format("{0:00}:{1:00}:{2:00}", minutes, secs, centis);
     }

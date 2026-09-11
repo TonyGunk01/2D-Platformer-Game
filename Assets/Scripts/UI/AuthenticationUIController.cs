@@ -45,6 +45,11 @@ public class AuthenticationUIController : MonoBehaviour
     private string validatedUsername;
     private string validatedRecoveryKey;
 
+    private System.Collections.IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(sceneName);
+    }
     public void OnClickLoginSubmit()
     {
         bool success = authenticationSystem.Login(loginUser.text, loginPass.text);
@@ -54,10 +59,7 @@ public class AuthenticationUIController : MonoBehaviour
             statusText.text = "<color=green>Login Successful!</color>";
             ClearAllInputs();
 
-            StartCoroutine(LoadLoggedInAfterDelay(2f));
-
-            if (loginPopUp != null)
-                loginPopUp.SetActive(false);
+            StartCoroutine(LoadSceneAfterDelay("Main Menu", 3f));
         }
 
         else
@@ -87,18 +89,12 @@ public class AuthenticationUIController : MonoBehaviour
 
     public void OnClickPlayFromRegister()
     {
-        SceneManager.LoadScene("Main Menu");
-    }
-
-    private System.Collections.IEnumerator LoadLoggedInAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene("Main Menu");
+        StartCoroutine(LoadSceneAfterDelay("Main Menu", 3f));
     }
 
     public void OnClickLogout()
     {
-        SceneManager.LoadScene("Home Page");
+        StartCoroutine(LoadSceneAfterDelay("Home Page", 3f));
     }
 
     public void OnClickVerifyKeySubmit()
@@ -109,7 +105,6 @@ public class AuthenticationUIController : MonoBehaviour
         if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(keyInput))
         {
             statusText.text = "<color=red>Please fill in all fields.</color>";
-            ClearAllInputs();
             return;
         }
 
@@ -118,14 +113,12 @@ public class AuthenticationUIController : MonoBehaviour
         if (checkResult == "Username not found.")
         {
             statusText.text = "<color=red>Username not found.</color>";
-            ClearAllInputs();
             return;
         }
 
         else if (checkResult == "Invalid recovery key.")
         {
             statusText.text = "<color=red>Incorrect recovery key.</color>";
-            ClearAllInputs();
             return;
         }
 
@@ -160,6 +153,9 @@ public class AuthenticationUIController : MonoBehaviour
             validatedRecoveryKey = "";
             optionsPopUp.SetActive(false);
             startscreenPopUp.SetActive(true);
+
+            if (SceneManager.GetActiveScene().name == "Main Menu")
+                StartCoroutine(LoadSceneAfterDelay("Home Page", 3f));
         }
 
         else
@@ -183,16 +179,19 @@ public class AuthenticationUIController : MonoBehaviour
         {
             statusText.text = "<color=green>Account permanently deleted from database.</color>";
             ClearAllInputs();
+
             deletePopUp.SetActive(false);
             startscreenPopUp.SetActive(true);
             deleteUser.text = ""; deletePass.text = "";
+            if (SceneManager.GetActiveScene().name == "Main Menu")
+                StartCoroutine(LoadSceneAfterDelay("Home Page", 3f));
         }
 
         else
             statusText.text = $"<color=red>{result}</color>";
     }
 
-    private void ClearAllInputs()
+    public void ClearAllInputs()
     {
         loginUser.text = ""; loginPass.text = "";
         regUser.text = ""; regPass.text = ""; regPassConfirm.text = "";

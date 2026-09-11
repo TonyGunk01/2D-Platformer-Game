@@ -54,7 +54,6 @@ public class LocalAuthenticationController : MonoBehaviour
         {
             File.Delete(path);
 
-            // remove per-user PlayerPrefs entries for this user (levels, scores, times)
             string userId = username.ToLower().Trim();
             try
             {
@@ -74,15 +73,12 @@ public class LocalAuthenticationController : MonoBehaviour
             }
             catch (System.Exception)
             {
-                // ignore any issues deleting prefs
+                
             }
 
-            // if deleted account was current user, clear current user key
             string current = PlayerPrefs.GetString("CurrentUser", "");
             if (!string.IsNullOrEmpty(current) && current == userId)
-            {
                 PlayerPrefs.DeleteKey("CurrentUser");
-            }
 
             PlayerPrefs.Save();
 

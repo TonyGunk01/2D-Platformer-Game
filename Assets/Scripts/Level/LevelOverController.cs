@@ -23,10 +23,8 @@ public class LevelOverController : MonoBehaviour
             if (player.uiTimer != null)
                 time = player.uiTimer.GetCurrentTime();
 
-            // save last-session stats for immediate display
             StatsManager.SaveStats(coins, time);
 
-            // persist per-level best score/time and unlock next level
             LevelManager.Instance.SaveCurrentLevelResult(coins, time);
 
             displayText.text = "<color=green>Level Complete!</color>";
