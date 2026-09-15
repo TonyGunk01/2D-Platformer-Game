@@ -194,7 +194,6 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetFloat(timeKey, timeSeconds);
         }
 
-        // mark level completed regardless of whether we updated bests
         SetLevelStatus(level, LevelStatus.Completed);
         PlayerPrefs.Save();
     }

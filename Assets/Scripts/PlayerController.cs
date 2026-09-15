@@ -65,7 +65,10 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DeathSequenceRoutine()
     {
         if (animator != null)
+        {
             animator.SetBool("Dead", true);
+            animator.Play("Ellen_GameOver");
+        }
 
         yield return new WaitForSeconds(1.5f);
 

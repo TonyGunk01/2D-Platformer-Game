@@ -6,12 +6,12 @@ public class PauseController : MonoBehaviour
 {
     public bool isPaused = false;
     public GameObject gameMenu;
+    public GameObject ellen;
     public Animator animator;
     public Rigidbody2D rb2d;
     private float previousAnimatorSpeed = 1f;
     private PlayerController playerController;
     public TMP_Text displayText;
-
     public GameObject gameStats;
 
     private void Awake()
@@ -35,6 +35,8 @@ public class PauseController : MonoBehaviour
     {
         isPaused = !isPaused;
         displayText.text = "<color=blue>Game Paused</color>";
+
+        ellen.SetActive(false);
 
         if (gameMenu != null)
             gameMenu.SetActive(isPaused);

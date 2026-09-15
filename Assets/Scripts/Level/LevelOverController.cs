@@ -30,6 +30,11 @@ public class LevelOverController : MonoBehaviour
             displayText.text = "<color=green>Level Complete!</color>";
             nextLevelButton.SetActive(true);
 
+            if (player.animator != null)
+            {
+                player.animator.Play("Ellen_Talking");
+            }
+
             var pause = player.GetComponent<PauseController>();
             if (pause != null)
             {
