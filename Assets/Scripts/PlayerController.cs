@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     private float previousAnimatorSpeed = 1f;
     public TMP_Text displayText;
     public GameObject gameStats;
+    public GameObject ellen;
 
     private void Awake()
     {
@@ -66,7 +67,7 @@ public class PlayerController : MonoBehaviour
     {
         if (animator != null)
         {
-            animator.SetBool("Dead", true);
+            animator.SetBool("PlayerDied", true);
             animator.Play("Ellen_GameOver");
         }
 
@@ -81,11 +82,9 @@ public class PlayerController : MonoBehaviour
             gameMenuController.gameObject.SetActive(true);
         }
 
-        if (animator != null)
-        {
-            previousAnimatorSpeed = animator.speed;
-            animator.speed = 0f;
-        }
+        // Pause all animations except Ellen so Ellen can continue its game-over animation
+        ellen.SetActive(true);
+        AnimatorUtils.PauseAllExcept("Ellen");
 
         Time.timeScale = 0f;
         this.enabled = false;

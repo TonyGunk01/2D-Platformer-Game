@@ -4825,6 +4825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: {fileID: 4200782539215006375}
   nextLevelButton: {fileID: 4200782539215006376}
+  ellen: {fileID: 4200782539215006377}
 --- !u!61 &1304567213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8215,6 +8216,10 @@ PrefabInstance:
       propertyPath: jump
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 1232785364, guid: 782a2a2a62e7fe24eb95877bde0071d8, type: 3}
+      propertyPath: ellen
+      value: 
+      objectReference: {fileID: 4200782539215006377}
     - target: {fileID: 1232785364, guid: 782a2a2a62e7fe24eb95877bde0071d8, type: 3}
       propertyPath: uiTimer
       value: 

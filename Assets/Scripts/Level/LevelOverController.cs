@@ -8,6 +8,7 @@ public class LevelOverController : MonoBehaviour
 {
     public TMP_Text displayText;
     public GameObject nextLevelButton;
+    public GameObject ellen;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -44,6 +45,14 @@ public class LevelOverController : MonoBehaviour
                 if (pause.displayText != null)
                     pause.displayText.text = "<color=green>Level Complete!</color>";
             }
+
+            if (player.animator != null)
+            {
+                player.animator.Play("Ellen_Talking");
+            }
+
+            ellen.SetActive(true);
+            AnimatorUtils.PauseAllExcept("Ellen");
         }
     }
 }
