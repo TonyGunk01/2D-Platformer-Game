@@ -4825,7 +4825,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: {fileID: 4200782539215006375}
   nextLevelButton: {fileID: 4200782539215006376}
-  ellen: {fileID: 4200782539215006377}
+  EllenLevelComplete: {fileID: 4200782539215006377}
 --- !u!61 &1304567213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5466,6 +5466,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1539934245 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7852589110510835358, guid: 5384e91a20093d0459c80108cfc20453,
+    type: 3}
+  m_PrefabInstance: {fileID: 4200782539215006372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1560675304
 GameObject:
   m_ObjectHideFlags: 0
@@ -8140,6 +8146,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 727794580}
+    - target: {fileID: 7439542431152369435, guid: 5384e91a20093d0459c80108cfc20453,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ellen
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1034420926291836097, guid: 5384e91a20093d0459c80108cfc20453, type: 3}
@@ -8236,6 +8247,10 @@ PrefabInstance:
       propertyPath: displayText
       value: 
       objectReference: {fileID: 4200782539215006375}
+    - target: {fileID: 1232785364, guid: 782a2a2a62e7fe24eb95877bde0071d8, type: 3}
+      propertyPath: EllenGameOver
+      value: 
+      objectReference: {fileID: 1539934245}
     - target: {fileID: 1232785364, guid: 782a2a2a62e7fe24eb95877bde0071d8, type: 3}
       propertyPath: scoreController
       value: 

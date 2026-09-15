@@ -1494,9 +1494,9 @@ Tilemap:
   - first: {x: 26, y: 21, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 13
-      m_TileSpriteIndex: 13
-      m_TileMatrixIndex: 0
+      m_TileIndex: 15
+      m_TileSpriteIndex: 14
+      m_TileMatrixIndex: 2
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -1504,9 +1504,9 @@ Tilemap:
   - first: {x: 31, y: 21, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 13
-      m_TileSpriteIndex: 13
-      m_TileMatrixIndex: 0
+      m_TileIndex: 15
+      m_TileSpriteIndex: 14
+      m_TileMatrixIndex: 2
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
@@ -1539,12 +1539,12 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 0a57494296f970b4baaee3561a28fe33, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 6735ba4e255050549948d02bf653c4c0, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 4a992904d0162db42a8f54ce6a578a8d, type: 2}
   - m_RefCount: 2
@@ -1584,10 +1584,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 2
-    m_Data: {fileID: 21300024, guid: e134e0f4ed64a1848aece477e814af31, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 2
+    m_Data: {fileID: 21300024, guid: e134e0f4ed64a1848aece477e814af31, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300006, guid: f88d8f6be5a5b2a4bb198ffa5fc1be8b, type: 3}
   - m_RefCount: 1
@@ -1603,24 +1603,24 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 21300014, guid: f66c4b63264e91e48bbdc9c0a5966da4, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 2
+  - m_RefCount: 0
     m_Data:
-      e00: 1
+      e00: -2.1474935e+10
       e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
+      e02: 6.552894e-20
+      e03: -2.147487e+10
+      e10: 6.3e-43
+      e11: 0
+      e12: 1.12e-43
+      e13: 6.3e-43
+      e20: 1.4057764e-35
       e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
+      e22: 15.997299
+      e23: 1.3739786e-28
+      e30: 4.5916e-41
       e31: 0
-      e32: 0
-      e33: 1
+      e32: 6.35e-43
+      e33: 6.32e-43
   - m_RefCount: 1
     m_Data:
       e00: 3
@@ -1639,24 +1639,24 @@ Tilemap:
       e31: 0
       e32: 0
       e33: 1
-  - m_RefCount: 0
+  - m_RefCount: 2
     m_Data:
-      e00: 0
+      e00: 1
       e01: 0
-      e02: 3.0700943e+29
-      e03: 3.0700943e+29
+      e02: 0
+      e03: 0
       e10: 0
-      e11: 0
-      e12: 7.96e-43
-      e13: 7.96e-43
-      e20: -8.3587623e+15
-      e21: 1e-45
-      e22: -8.858998e-10
-      e23: -4.3411623e+11
-      e30: 4.5905e-41
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
       e31: 0
-      e32: 7.96e-43
-      e33: 7.96e-43
+      e32: 0
+      e33: 1
   - m_RefCount: 7
     m_Data:
       e00: 2
@@ -4245,7 +4245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayText: {fileID: 4200782539215006375}
   nextLevelButton: {fileID: 4200782539215006373}
-  ellen: {fileID: 4200782539215006376}
+  EllenLevelComplete: {fileID: 4200782539215006376}
 --- !u!61 &1304567213
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5374,7 +5374,7 @@ Tilemap:
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 0.48235294}
   m_Origin: {x: -30, y: -7, z: 0}
-  m_Size: {x: 61, y: 29, z: 1}
+  m_Size: {x: 62, y: 29, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -6767,6 +6767,16 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -221.96
       objectReference: {fileID: 0}
+    - target: {fileID: 4246927106195292261, guid: 5384e91a20093d0459c80108cfc20453,
+        type: 3}
+      propertyPath: LevelName
+      value: Level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7439542431152369435, guid: 5384e91a20093d0459c80108cfc20453,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ellen
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7275576520516984066, guid: 5384e91a20093d0459c80108cfc20453, type: 3}
     m_RemovedGameObjects: []
@@ -6809,6 +6819,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4200782539215006372}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4200782539215006377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7852589110510835358, guid: 5384e91a20093d0459c80108cfc20453,
+    type: 3}
+  m_PrefabInstance: {fileID: 4200782539215006372}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5691267107899676383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6833,6 +6849,10 @@ PrefabInstance:
       propertyPath: displayText
       value: 
       objectReference: {fileID: 4200782539215006374}
+    - target: {fileID: 1232785364, guid: 782a2a2a62e7fe24eb95877bde0071d8, type: 3}
+      propertyPath: EllenGameOver
+      value: 
+      objectReference: {fileID: 4200782539215006377}
     - target: {fileID: 1232785364, guid: 782a2a2a62e7fe24eb95877bde0071d8, type: 3}
       propertyPath: scoreController
       value: 

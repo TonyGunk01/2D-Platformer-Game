@@ -78,7 +78,7 @@ public class CutsceneController : MonoBehaviour
                 movingToPointA = false;
                 SetAnimatorRunning(playerAnimator, false);
                 SetAnimatorRunning(chomperAnimator, false);
-                // both reached point A -> load Home Page scene
+
                 SceneManager.LoadScene("Home Page");
             }
         }
@@ -110,8 +110,10 @@ public class CutsceneController : MonoBehaviour
 
         if (AnimatorHasParameter(anim, "isRunning", AnimatorControllerParameterType.Bool))
             anim.SetBool("isRunning", running);
+
         else if (AnimatorHasParameter(anim, "Run", AnimatorControllerParameterType.Bool))
             anim.SetBool("Run", running);
+
         else if (AnimatorHasParameter(anim, "Speed", AnimatorControllerParameterType.Float))
             anim.SetFloat("Speed", running ? 1f : 0f);
     }

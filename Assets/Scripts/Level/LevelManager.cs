@@ -176,14 +176,14 @@ public class LevelManager : MonoBehaviour
 
         bool shouldSave = false;
 
-        // If no previous score/time saved, always save
         if (prevScore < 0)
             shouldSave = true;
+
         else if (score > prevScore)
             shouldSave = true;
+
         else if (score == prevScore)
         {
-            // if same score, prefer the shorter time (or save if no previous time)
             if (prevTime < 0f || timeSeconds < prevTime)
                 shouldSave = true;
         }

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public ScoreController scoreController;
     public GameMenuController gameMenuController;
     public UIAdvancedTimer uiTimer;
+    public GameObject EllenGameOver;
     public float speed;
     public float jump;
     public bool isDead = false;
@@ -23,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private float previousAnimatorSpeed = 1f;
     public TMP_Text displayText;
     public GameObject gameStats;
-    public GameObject ellen;
 
     private void Awake()
     {
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
         if (isDead) 
             return;
 
+        EllenGameOver.SetActive(true);
         displayText.text = "<color=red>Player Died!</color>";
         isDead = true;
 
@@ -66,10 +67,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator DeathSequenceRoutine()
     {
         if (animator != null)
-        {
-            animator.SetBool("PlayerDied", true);
-            animator.Play("Ellen_GameOver");
-        }
+            animator.SetBool("Dead", true);
 
         yield return new WaitForSeconds(1.5f);
 
@@ -82,9 +80,11 @@ public class PlayerController : MonoBehaviour
             gameMenuController.gameObject.SetActive(true);
         }
 
-        // Pause all animations except Ellen so Ellen can continue its game-over animation
-        ellen.SetActive(true);
-        AnimatorUtils.PauseAllExcept("Ellen");
+        if (animator != null)
+        {
+            previousAnimatorSpeed = animator.speed;
+            animator.speed = 0f;
+        }
 
         Time.timeScale = 0f;
         this.enabled = false;
