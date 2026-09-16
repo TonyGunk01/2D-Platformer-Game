@@ -867,6 +867,7 @@ MonoBehaviour:
   CompletedIcon: {fileID: 0}
   ScoreText: {fileID: 0}
   TimeText: {fileID: 0}
+  Stars: []
 --- !u!114 &617185734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,6 +1195,7 @@ MonoBehaviour:
   CompletedIcon: {fileID: 0}
   ScoreText: {fileID: 0}
   TimeText: {fileID: 0}
+  Stars: []
 --- !u!114 &702126683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6322,6 +6324,16 @@ PrefabInstance:
         type: 3}
       propertyPath: FirstPlayableLevel
       value: Main Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: ThreeStarTimes.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'LevelTotalCoins.Array.data[5]'
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

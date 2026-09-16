@@ -4383,24 +4383,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7361564103011484293, guid: 7d9d61b8a706b0348b6eea72141a05d4,
-        type: 3}
-      propertyPath: displayText
-      value: 
-      objectReference: {fileID: 4200782539215006375}
-    - target: {fileID: 7361564103011484293, guid: 7d9d61b8a706b0348b6eea72141a05d4,
-        type: 3}
-      propertyPath: nextLevelButton
-      value: 
-      objectReference: {fileID: 4200782539215006376}
-    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
-        type: 3}
-      propertyPath: FirstPlayableLevel
-      value: Main Menu
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1418708459139779247, guid: 7d9d61b8a706b0348b6eea72141a05d4, type: 3}
-    - {fileID: 7775456511358659945, guid: 7d9d61b8a706b0348b6eea72141a05d4, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

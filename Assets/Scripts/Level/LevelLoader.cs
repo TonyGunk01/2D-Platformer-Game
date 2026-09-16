@@ -16,6 +16,8 @@ public class LevelLoader : MonoBehaviour
     public GameObject CompletedIcon;
     public TMP_Text ScoreText;
     public TMP_Text TimeText;
+    // Optional star UI objects (index 0 = 1-star, 1 = 2-star, 2 = 3-star)
+    public GameObject[] Stars;
 
     private void Awake()
     {
@@ -58,6 +60,17 @@ public class LevelLoader : MonoBehaviour
         {
             float time = LevelManager.Instance.GetLevelTime(LevelName);
             TimeText.text = time >= 0f ? "Time: " + FormatTime(time) : "-";
+        }
+
+        // Update star UI if provided
+        if (Stars != null && Stars.Length > 0)
+        {
+            int starCount = LevelManager.Instance.GetLevelStars(LevelName);
+            for (int i = 0; i < Stars.Length; i++)
+            {
+                if (Stars[i] != null)
+                    Stars[i].SetActive(i < starCount);
+            }
         }
     }
 

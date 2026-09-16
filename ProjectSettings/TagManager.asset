@@ -9,6 +9,7 @@ TagManager:
   - Chomper
   - Gunner
   - Ellen
+  - Coin
   layers:
   - Default
   - TransparentFX

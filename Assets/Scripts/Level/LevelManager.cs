@@ -10,6 +10,10 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance { get { return instance; } }
 
     public string[] Levels;
+    // Total coins expected in each level (aligns with Levels[] by index). Set in inspector.
+    public int[] LevelTotalCoins;
+    // Time thresholds (in seconds) for earning 3 stars per level (aligns with Levels[] by index). Set in inspector.
+    public float[] ThreeStarTimes;
     public string[] GloballyUnlockedLevels;
 
     private const string CurrentUserKey = "CurrentUser";
@@ -196,6 +200,42 @@ public class LevelManager : MonoBehaviour
 
         SetLevelStatus(level, LevelStatus.Completed);
         PlayerPrefs.Save();
+    }
+
+    // Returns number of stars earned for a level (0-3) based on completion, coin collection and time thresholds.
+    public int GetLevelStars(string level)
+    {
+        if (string.IsNullOrEmpty(level))
+            return 0;
+
+        LevelStatus status = GetLevelStatus(level);
+        if (status != LevelStatus.Completed)
+            return 0;
+
+        int stars = 1; // completed => at least 1 star
+
+        int score = GetLevelScore(level);
+        float time = GetLevelTime(level);
+
+        int idx = Array.FindIndex(Levels, l => l == level);
+
+        // Check for all coins collected => 2 stars
+        if (idx >= 0 && LevelTotalCoins != null && idx < LevelTotalCoins.Length)
+        {
+            int total = LevelTotalCoins[idx];
+            if (total > 0 && score >= total)
+                stars = Mathf.Max(stars, 2);
+        }
+
+        // Check for 3 stars: all coins collected and under threshold time
+        if (stars >= 2 && idx >= 0 && ThreeStarTimes != null && idx < ThreeStarTimes.Length)
+        {
+            float threshold = ThreeStarTimes[idx];
+            if (threshold > 0f && time > 0f && time <= threshold)
+                stars = 3;
+        }
+
+        return stars;
     }
 
     public void SaveCurrentLevelResult(int score, float timeSeconds)
