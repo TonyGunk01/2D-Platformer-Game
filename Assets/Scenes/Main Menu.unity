@@ -7825,26 +7825,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1315051239}
     m_Modifications:
-    - target: {fileID: 1497755440890941968, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.99810624
-      objectReference: {fileID: 0}
-    - target: {fileID: 1497755440890941968, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933342328636923019, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.99810624
-      objectReference: {fileID: 0}
-    - target: {fileID: 2933342328636923019, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4146623828159804406, guid: f7f5c96c29969194ebec0110cdc28b96,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7945,40 +7925,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4586669862118149507, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.99810624
-      objectReference: {fileID: 0}
-    - target: {fileID: 4586669862118149507, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5251362036854132401, guid: f7f5c96c29969194ebec0110cdc28b96,
         type: 3}
       propertyPath: m_Name
       value: LevelSelectionPopUp
-      objectReference: {fileID: 0}
-    - target: {fileID: 6647266338257304094, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.99810624
-      objectReference: {fileID: 0}
-    - target: {fileID: 6647266338257304094, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7315805267497575457, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.b
-      value: 0.99810624
-      objectReference: {fileID: 0}
-    - target: {fileID: 7315805267497575457, guid: f7f5c96c29969194ebec0110cdc28b96,
-        type: 3}
-      propertyPath: m_fontColor.g
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -32,6 +32,7 @@ public class LevelOverController : MonoBehaviour
             nextLevelButton.SetActive(true);
 
             var pause = player.GetComponent<PauseController>();
+
             if (pause != null)
             {
                 if (!pause.isPaused)

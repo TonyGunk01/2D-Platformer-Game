@@ -71,11 +71,13 @@ public class ChomperController : MonoBehaviour
         if (chasing)
         {
             SoundManager.Instance.Play(Sounds.ChomperAttack);
+
             float playerX = playerTransform.position.x;
             float chomperX = transform.position.x;
 
             float direction = Mathf.Sign(playerX - chomperX);
             float nextX = chomperX + direction * chaseSpeed * Time.deltaTime;
+
             Vector2 nextPosition = new Vector2(nextX, transform.position.y);
 
             if (IsGroundAtEdgeWithPlatformTag(nextPosition))
