@@ -4592,6 +4592,21 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 8978914495317651127}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1423804179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1423804177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 519cef0b795dd4a43b3fa38ed7b39e7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LevelSelectionPopupController
+  levelsContainer: {fileID: 8978914495317651128}
+  gui24Sprite: {fileID: 21300048, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  emptyStarSprite: {fileID: 21300050, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
 --- !u!1 &1471138131
 GameObject:
   m_ObjectHideFlags: 0
@@ -7475,6 +7490,66 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: MaxScores.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'MaxScores.Array.data[0]'
+      value: 110
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'MaxScores.Array.data[1]'
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'MaxScores.Array.data[2]'
+      value: 70
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'MaxScores.Array.data[3]'
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'MaxScores.Array.data[4]'
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: ParTimesSeconds.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'ParTimesSeconds.Array.data[0]'
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'ParTimesSeconds.Array.data[1]'
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'ParTimesSeconds.Array.data[2]'
+      value: 41
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'ParTimesSeconds.Array.data[3]'
+      value: 26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8340432167956556372, guid: 7d9d61b8a706b0348b6eea72141a05d4,
+        type: 3}
+      propertyPath: 'ParTimesSeconds.Array.data[4]'
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7761,6 +7836,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1315051239}
     m_Modifications:
+    - target: {fileID: 386404275607072259, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: m_Name
+      value: Level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2380991906120004339, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: m_Name
+      value: Level 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4146623828159804406, guid: f7f5c96c29969194ebec0110cdc28b96,
         type: 3}
       propertyPath: m_Pivot.x
@@ -7866,11 +7951,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSelectionPopUp
       objectReference: {fileID: 0}
+    - target: {fileID: 7154601316309786400, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: m_Name
+      value: Level 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8206361642347276495, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: m_Name
+      value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959708143531889557, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      propertyPath: m_Name
+      value: Level 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5251362036854132401, guid: f7f5c96c29969194ebec0110cdc28b96,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1423804179}
   m_SourcePrefab: {fileID: 100100000, guid: f7f5c96c29969194ebec0110cdc28b96, type: 3}
+--- !u!224 &8978914495317651128 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5675524085665524008, guid: f7f5c96c29969194ebec0110cdc28b96,
+    type: 3}
+  m_PrefabInstance: {fileID: 8978914495317651127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

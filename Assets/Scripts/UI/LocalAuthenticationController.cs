@@ -68,6 +68,7 @@ public class LocalAuthenticationController : MonoBehaviour
                         PlayerPrefs.DeleteKey($"{userId}_{lvl}");
                         PlayerPrefs.DeleteKey($"{userId}_{lvl}_score");
                         PlayerPrefs.DeleteKey($"{userId}_{lvl}_time");
+                        PlayerPrefs.DeleteKey($"{userId}_{lvl}_stars");
                     }
                 }
             }

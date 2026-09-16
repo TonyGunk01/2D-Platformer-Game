@@ -46,21 +46,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Levels:
-  - Main Menu
   - Level 1
   - Level 2
   - Level 3
   - Level 4
   - Level 5
-  LevelTotalCoins: 000000000b00000007000000070000000800000008000000
-  ThreeStarTimes:
-  - 0
-  - 26
-  - 35
-  - 41
-  - 26
-  - 60
-  GloballyUnlockedLevels: []
+  GloballyUnlockedLevels:
+  - Main Menu
 --- !u!114 &6703941333249052087
 MonoBehaviour:
   m_ObjectHideFlags: 0

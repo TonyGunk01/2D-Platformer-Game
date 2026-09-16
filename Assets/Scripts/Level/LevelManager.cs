@@ -10,11 +10,11 @@ public class LevelManager : MonoBehaviour
     public static LevelManager Instance { get { return instance; } }
 
     public string[] Levels;
-    // Total coins expected in each level (aligns with Levels[] by index). Set in inspector.
-    public int[] LevelTotalCoins;
-    // Time thresholds (in seconds) for earning 3 stars per level (aligns with Levels[] by index). Set in inspector.
-    public float[] ThreeStarTimes;
     public string[] GloballyUnlockedLevels;
+    // Optional: set maximum score (e.g. total coins) and par times for each level in the inspector.
+    // Arrays should align with 'Levels' by index.
+    public int[] MaxScores;
+    public float[] ParTimesSeconds;
 
     private const string CurrentUserKey = "CurrentUser";
 
@@ -197,45 +197,19 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt(scoreKey, score);
             PlayerPrefs.SetFloat(timeKey, timeSeconds);
         }
-
+        // Mark completed
         SetLevelStatus(level, LevelStatus.Completed);
+
+        // Compute stars according to criteria:
+        // 1) completed but not maximum score -> 1 star
+        // 2) completed and maximum score -> 2 stars
+        // 3) maximum score and completed under certain time (par) -> 3 stars
+        int newStars = ComputeStarsForResult(level, score, timeSeconds);
+        // Only save if improved
+        int prevStars = GetLevelStars(level);
+        if (newStars > prevStars)
+            SetLevelStars(level, newStars);
         PlayerPrefs.Save();
-    }
-
-    // Returns number of stars earned for a level (0-3) based on completion, coin collection and time thresholds.
-    public int GetLevelStars(string level)
-    {
-        if (string.IsNullOrEmpty(level))
-            return 0;
-
-        LevelStatus status = GetLevelStatus(level);
-        if (status != LevelStatus.Completed)
-            return 0;
-
-        int stars = 1; // completed => at least 1 star
-
-        int score = GetLevelScore(level);
-        float time = GetLevelTime(level);
-
-        int idx = Array.FindIndex(Levels, l => l == level);
-
-        // Check for all coins collected => 2 stars
-        if (idx >= 0 && LevelTotalCoins != null && idx < LevelTotalCoins.Length)
-        {
-            int total = LevelTotalCoins[idx];
-            if (total > 0 && score >= total)
-                stars = Mathf.Max(stars, 2);
-        }
-
-        // Check for 3 stars: all coins collected and under threshold time
-        if (stars >= 2 && idx >= 0 && ThreeStarTimes != null && idx < ThreeStarTimes.Length)
-        {
-            float threshold = ThreeStarTimes[idx];
-            if (threshold > 0f && time > 0f && time <= threshold)
-                stars = 3;
-        }
-
-        return stars;
     }
 
     public void SaveCurrentLevelResult(int score, float timeSeconds)
@@ -258,5 +232,84 @@ public class LevelManager : MonoBehaviour
     public float GetLevelTime(string level)
     {
         return PlayerPrefs.GetFloat(GetKey(level) + "_time", -1f);
+    }
+
+    // Stars handling
+    private string GetStarsKey(string level)
+    {
+        return GetKey(level) + "_stars";
+    }
+
+    public void SetLevelStars(string level, int stars)
+    {
+        if (string.IsNullOrEmpty(level))
+            return;
+
+        stars = Mathf.Clamp(stars, 0, 3);
+        PlayerPrefs.SetInt(GetStarsKey(level), stars);
+        PlayerPrefs.Save();
+    }
+
+    public int GetLevelStars(string level)
+    {
+        return PlayerPrefs.GetInt(GetStarsKey(level), 0);
+    }
+
+    private int ComputeStarsForResult(string level, int score, float timeSeconds)
+    {
+        // Default: if not completed or invalid inputs, 0
+        int maxScore = GetMaxScoreForLevel(level);
+        float par = GetParTimeForLevel(level);
+        bool hasMaxScore = maxScore > 0 && score >= maxScore;
+        // Debug information to help diagnose star calculation issues
+        try
+        {
+            Debug.Log($"ComputeStarsForResult: level={level}, score={score}, timeSeconds={timeSeconds}, maxScore={maxScore}, par={par}, hasMaxScore={hasMaxScore}");
+        }
+        catch (Exception ex)
+        {
+            Debug.Log("ComputeStarsForResult: failed to format debug log: " + ex);
+        }
+
+        if (!hasMaxScore && score >= 0)
+            return 1; // completed but not max
+
+        if (hasMaxScore)
+        {
+            if (par > 0f && timeSeconds > 0f && timeSeconds <= par)
+                return 3; // max score and under par -> 3 stars
+
+            return 2; // max score but not under par -> 2 stars
+        }
+
+        return 0;
+    }
+
+    private int GetMaxScoreForLevel(string level)
+    {
+        if (Levels == null || MaxScores == null)
+            return 0;
+
+        for (int i = 0; i < Levels.Length && i < MaxScores.Length; i++)
+        {
+            if (string.Equals(Levels[i], level, StringComparison.Ordinal))
+                return MaxScores[i];
+        }
+
+        return 0;
+    }
+
+    private float GetParTimeForLevel(string level)
+    {
+        if (Levels == null || ParTimesSeconds == null)
+            return 0f;
+
+        for (int i = 0; i < Levels.Length && i < ParTimesSeconds.Length; i++)
+        {
+            if (string.Equals(Levels[i], level, StringComparison.Ordinal))
+                return ParTimesSeconds[i];
+        }
+
+        return 0f;
     }
 }
