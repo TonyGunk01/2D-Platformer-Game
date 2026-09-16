@@ -53,6 +53,13 @@ MonoBehaviour:
   - Level 5
   GloballyUnlockedLevels:
   - Main Menu
+  MaxScores: 6e00000046000000460000005000000050000000
+  ParTimesSeconds:
+  - 26
+  - 35
+  - 41
+  - 26
+  - 60
 --- !u!114 &6703941333249052087
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -56,6 +56,57 @@ public class LevelManager : MonoBehaviour
 
         else
             Destroy(gameObject);
+        // Subscribe to sceneLoaded so we can detect level collectibles and auto-fill MaxScores when missing
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // Attempt to auto-detect maximum score for the loaded level by counting KeyController objects
+        if (Levels == null || Levels.Length == 0)
+            return;
+
+        string sceneName = scene.name;
+        int levelIndex = Array.FindIndex(Levels, l => l == sceneName);
+        if (levelIndex < 0)
+            return;
+
+        try
+        {
+            // Count KeyController instances (keys give 10 points each)
+            var keys = UnityEngine.Object.FindObjectsOfType<KeyController>(true);
+            int detectedMax = 0;
+            if (keys != null && keys.Length > 0)
+                detectedMax = keys.Length * 10;
+
+            if (detectedMax > 0)
+            {
+                if (MaxScores == null || MaxScores.Length <= levelIndex || MaxScores[levelIndex] == 0)
+                {
+                    // Ensure array large enough
+                    if (MaxScores == null || MaxScores.Length <= levelIndex)
+                    {
+                        int newLen = Math.Max(levelIndex + 1, MaxScores == null ? 0 : MaxScores.Length);
+                        var newArr = new int[Math.Max(newLen, levelIndex + 1)];
+                        if (MaxScores != null)
+                            Array.Copy(MaxScores, newArr, MaxScores.Length);
+                        MaxScores = newArr;
+                    }
+
+                    MaxScores[levelIndex] = detectedMax;
+                    Debug.Log($"LevelManager: Auto-detected MaxScore={detectedMax} for level={sceneName}");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Debug.LogWarning($"LevelManager: error auto-detecting max score for {sceneName}: {ex.Message}");
+        }
     }
 
     private void Start()
@@ -63,6 +114,13 @@ public class LevelManager : MonoBehaviour
         if (Levels != null && Levels.Length > 0)
         {
             MigrateDeviceProgressIfNeeded();
+
+            // Validate configuration arrays
+            if (MaxScores == null || MaxScores.Length < Levels.Length)
+                Debug.LogWarning("LevelManager: MaxScores not configured for all Levels. Configure MaxScores[] in the inspector so full-score detection works.");
+
+            if (ParTimesSeconds == null || ParTimesSeconds.Length < Levels.Length)
+                Debug.LogWarning("LevelManager: ParTimesSeconds not configured for all Levels. Configure ParTimesSeconds[] in the inspector to enable 3-star timing.");
 
             if (GetLevelStatus(Levels[0]) == LevelStatus.Locked)
                 SetLevelStatus(Levels[0], LevelStatus.Unlocked);
@@ -252,7 +310,27 @@ public class LevelManager : MonoBehaviour
 
     public int GetLevelStars(string level)
     {
-        return PlayerPrefs.GetInt(GetStarsKey(level), 0);
+        string starsKey = GetStarsKey(level);
+
+        if (PlayerPrefs.HasKey(starsKey))
+            return PlayerPrefs.GetInt(starsKey, 0);
+
+        // If stars not explicitly stored yet, attempt to compute from saved score/time
+        string scoreKey = GetKey(level) + "_score";
+        string timeKey = GetKey(level) + "_time";
+
+        int savedScore = PlayerPrefs.GetInt(scoreKey, -1);
+        float savedTime = PlayerPrefs.GetFloat(timeKey, -1f);
+
+        if (savedScore >= 0)
+        {
+            int computed = ComputeStarsForResult(level, savedScore, savedTime);
+            PlayerPrefs.SetInt(starsKey, computed);
+            PlayerPrefs.Save();
+            return computed;
+        }
+
+        return 0;
     }
 
     private int ComputeStarsForResult(string level, int score, float timeSeconds)
