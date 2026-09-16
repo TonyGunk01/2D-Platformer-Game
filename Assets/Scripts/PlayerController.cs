@@ -43,19 +43,20 @@ public class PlayerController : MonoBehaviour
             return;
 
         EllenGameOver.SetActive(true);
-        // make exception for Ellen animations so they continue when timeScale = 0
+
         if (EllenGameOver != null)
         {
             Animator ellenAnim = EllenGameOver.GetComponent<Animator>();
+
             if (ellenAnim != null && ellenAnim.runtimeAnimatorController != null)
             {
                 string rcName = ellenAnim.runtimeAnimatorController.name;
+
                 if (rcName == "Ellen Talking" || rcName == "Ellen Death")
-                {
                     ellenAnim.updateMode = AnimatorUpdateMode.UnscaledTime;
-                }
             }
         }
+
         displayText.text = "<color=red>Player Died!</color>";
         isDead = true;
 

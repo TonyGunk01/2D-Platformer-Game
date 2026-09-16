@@ -43,10 +43,8 @@ public class PauseController : MonoBehaviour
         isPaused = !isPaused;
         displayText.text = "<color=blue>Game Paused</color>";
 
-        // handle Ellen: make exception for "Ellen Talking" and "Ellen Death" animator controllers
         if (ellen != null)
         {
-            // cache active state to restore on unpause
             ellenWasActiveBeforePause = ellen.activeSelf;
 
             if (isPaused)
@@ -55,20 +53,22 @@ public class PauseController : MonoBehaviour
                     ellenAnimator = ellen.GetComponent<Animator>();
 
                 bool isException = false;
+
                 if (ellenAnimator != null && ellenAnimator.runtimeAnimatorController != null)
                 {
                     string rcName = ellenAnimator.runtimeAnimatorController.name;
+
                     if (rcName == "Ellen Talking" || rcName == "Ellen Death")
                         isException = true;
                 }
 
                 if (isException)
                 {
-                    // keep Ellen active and allow animator to update while timeScale = 0
                     previousEllenUpdateMode = ellenAnimator.updateMode;
                     ellenAnimator.updateMode = AnimatorUpdateMode.UnscaledTime;
                     ellenExceptionApplied = true;
                 }
+
                 else
                 {
                     ellen.SetActive(false);
@@ -77,8 +77,8 @@ public class PauseController : MonoBehaviour
             }
             else
             {
-                // unpausing: restore previous active state and animator update mode if we changed it
                 ellen.SetActive(ellenWasActiveBeforePause);
+
                 if (ellenExceptionApplied && ellenAnimator != null)
                 {
                     ellenAnimator.updateMode = previousEllenUpdateMode;

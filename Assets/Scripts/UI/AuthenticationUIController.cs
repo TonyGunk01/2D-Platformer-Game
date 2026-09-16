@@ -151,6 +151,7 @@ public class AuthenticationUIController : MonoBehaviour
 
             validatedUsername = "";
             validatedRecoveryKey = "";
+
             optionsPopUp.SetActive(false);
             startscreenPopUp.SetActive(true);
 
@@ -182,7 +183,10 @@ public class AuthenticationUIController : MonoBehaviour
 
             deletePopUp.SetActive(false);
             startscreenPopUp.SetActive(true);
-            deleteUser.text = ""; deletePass.text = "";
+
+            deleteUser.text = ""; 
+            deletePass.text = "";
+
             if (SceneManager.GetActiveScene().name == "Main Menu")
                 StartCoroutine(LoadSceneAfterDelay("Home Page", 3f));
         }

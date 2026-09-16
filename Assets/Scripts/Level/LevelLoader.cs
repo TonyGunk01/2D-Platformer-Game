@@ -35,7 +35,6 @@ public class LevelLoader : MonoBehaviour
 
         if (LevelManager.Instance == null)
         {
-            Debug.LogWarning("LevelLoader: LevelManager instance not found. Disabling level button: " + LevelName);
             button.interactable = false;
             return;
         }
@@ -52,13 +51,13 @@ public class LevelLoader : MonoBehaviour
         if (ScoreText != null)
         {
             int score = LevelManager.Instance.GetLevelScore(LevelName);
-            ScoreText.text = score >= 0 ? score.ToString() : "-";
+            ScoreText.text = score >= 0 ? "Score: " + score.ToString() : "-";
         }
 
         if (TimeText != null)
         {
             float time = LevelManager.Instance.GetLevelTime(LevelName);
-            TimeText.text = time >= 0f ? FormatTime(time) : "-";
+            TimeText.text = time >= 0f ? "Time: " + FormatTime(time) : "-";
         }
     }
 
