@@ -11,8 +11,7 @@ public class LevelManager : MonoBehaviour
 
     public string[] Levels;
     public string[] GloballyUnlockedLevels;
-    // Optional: set maximum score (e.g. total coins) and par times for each level in the inspector.
-    // Arrays should align with 'Levels' by index.
+    
     public int[] MaxScores;
     public float[] ParTimesSeconds;
 
@@ -56,7 +55,7 @@ public class LevelManager : MonoBehaviour
 
         else
             Destroy(gameObject);
-        // Subscribe to sceneLoaded so we can detect level collectibles and auto-fill MaxScores when missing
+
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -67,7 +66,6 @@ public class LevelManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Attempt to auto-detect maximum score for the loaded level by counting KeyController objects
         if (Levels == null || Levels.Length == 0)
             return;
 
@@ -78,7 +76,6 @@ public class LevelManager : MonoBehaviour
 
         try
         {
-            // Count KeyController instances (keys give 10 points each)
             var keys = UnityEngine.Object.FindObjectsOfType<KeyController>(true);
             int detectedMax = 0;
             if (keys != null && keys.Length > 0)
@@ -88,7 +85,6 @@ public class LevelManager : MonoBehaviour
             {
                 if (MaxScores == null || MaxScores.Length <= levelIndex || MaxScores[levelIndex] == 0)
                 {
-                    // Ensure array large enough
                     if (MaxScores == null || MaxScores.Length <= levelIndex)
                     {
                         int newLen = Math.Max(levelIndex + 1, MaxScores == null ? 0 : MaxScores.Length);
@@ -115,7 +111,6 @@ public class LevelManager : MonoBehaviour
         {
             MigrateDeviceProgressIfNeeded();
 
-            // Validate configuration arrays
             if (MaxScores == null || MaxScores.Length < Levels.Length)
                 Debug.LogWarning("LevelManager: MaxScores not configured for all Levels. Configure MaxScores[] in the inspector so full-score detection works.");
 
@@ -255,18 +250,17 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt(scoreKey, score);
             PlayerPrefs.SetFloat(timeKey, timeSeconds);
         }
-        // Mark completed
+        
         SetLevelStatus(level, LevelStatus.Completed);
 
-        // Compute stars according to criteria:
-        // 1) completed but not maximum score -> 1 star
-        // 2) completed and maximum score -> 2 stars
-        // 3) maximum score and completed under certain time (par) -> 3 stars
+        
         int newStars = ComputeStarsForResult(level, score, timeSeconds);
-        // Only save if improved
+        
         int prevStars = GetLevelStars(level);
+
         if (newStars > prevStars)
             SetLevelStars(level, newStars);
+
         PlayerPrefs.Save();
     }
 
@@ -292,7 +286,6 @@ public class LevelManager : MonoBehaviour
         return PlayerPrefs.GetFloat(GetKey(level) + "_time", -1f);
     }
 
-    // Stars handling
     private string GetStarsKey(string level)
     {
         return GetKey(level) + "_stars";
@@ -315,7 +308,6 @@ public class LevelManager : MonoBehaviour
         if (PlayerPrefs.HasKey(starsKey))
             return PlayerPrefs.GetInt(starsKey, 0);
 
-        // If stars not explicitly stored yet, attempt to compute from saved score/time
         string scoreKey = GetKey(level) + "_score";
         string timeKey = GetKey(level) + "_time";
 
@@ -335,29 +327,29 @@ public class LevelManager : MonoBehaviour
 
     private int ComputeStarsForResult(string level, int score, float timeSeconds)
     {
-        // Default: if not completed or invalid inputs, 0
         int maxScore = GetMaxScoreForLevel(level);
         float par = GetParTimeForLevel(level);
         bool hasMaxScore = maxScore > 0 && score >= maxScore;
-        // Debug information to help diagnose star calculation issues
+        
         try
         {
             Debug.Log($"ComputeStarsForResult: level={level}, score={score}, timeSeconds={timeSeconds}, maxScore={maxScore}, par={par}, hasMaxScore={hasMaxScore}");
         }
+
         catch (Exception ex)
         {
             Debug.Log("ComputeStarsForResult: failed to format debug log: " + ex);
         }
 
         if (!hasMaxScore && score >= 0)
-            return 1; // completed but not max
+            return 1;
 
         if (hasMaxScore)
         {
             if (par > 0f && timeSeconds > 0f && timeSeconds <= par)
-                return 3; // max score and under par -> 3 stars
+                return 3;
 
-            return 2; // max score but not under par -> 2 stars
+            return 2;
         }
 
         return 0;
