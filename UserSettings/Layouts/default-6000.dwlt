@@ -1413,9 +1413,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 1156.9167, y: 537.16003, z: -4.36785}
+    m_Target: {x: 916.1658, y: 542.7925, z: -12.484045}
     speed: 2
-    m_Value: {x: 750.57336, y: 185.9809, z: 2.6763492}
+    m_Value: {x: 916.1658, y: 542.7925, z: -12.484045}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1465,9 +1465,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 528.3643
+    m_Target: 612.9378
     speed: 2
-    m_Value: 382.0967
+    m_Value: 612.9378
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1936,7 +1936,7 @@ MonoBehaviour:
     m_DynamicPanelBehavior: 0
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 40306
+  m_LastSelectedObjectID: 0
 --- !u!114 &23
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -2011,18 +2011,16 @@ MonoBehaviour:
       m_Data: 40290
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 40496
-    - m_Data: 40498
-    - m_Data: 40500
-    - m_Data: 40502
-    - m_Data: 40504
-    - m_Data: 40506
-    - m_Data: 40508
-    - m_Data: 40510
-    - m_Data: 40512
-    - m_Data: 40514
-    - m_Data: 40516
-    - m_Data: 40518
+    - m_Data: 40128
+    - m_Data: 40130
+    - m_Data: 40132
+    - m_Data: 40134
+    - m_Data: 40136
+    - m_Data: 40138
+    - m_Data: 40140
+    - m_Data: 40142
+    - m_Data: 40144
+    - m_Data: 40146
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2055,18 +2053,16 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 40496
-    - m_Data: 40498
-    - m_Data: 40500
-    - m_Data: 40502
-    - m_Data: 40504
-    - m_Data: 40506
-    - m_Data: 40508
-    - m_Data: 40510
-    - m_Data: 40512
-    - m_Data: 40514
-    - m_Data: 40516
-    - m_Data: 40518
+    - m_Data: 40128
+    - m_Data: 40130
+    - m_Data: 40132
+    - m_Data: 40134
+    - m_Data: 40136
+    - m_Data: 40138
+    - m_Data: 40140
+    - m_Data: 40142
+    - m_Data: 40144
+    - m_Data: 40146
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 

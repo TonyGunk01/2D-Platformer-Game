@@ -77,23 +77,22 @@ public class AuthenticationUIController : MonoBehaviour
         if (result.StartsWith("SUCCESS:"))
         {
             string generatedKey = result.Split(':')[1];
-            statusText.text = $"<color=green>Account Created! Write down your recovery key: <color=yellow><font=\"LiberationSans SDF\">{generatedKey}</font></color>";
-            buttonCreate.SetActive(false);
-            buttonPlay.SetActive(true);
+
+            PlayerPrefs.SetString("LastRecoveryKey", generatedKey);
+            PlayerPrefs.Save();
+
+            statusText.text = $"<color=green>Account Created! Logging in...</color>";
             ClearAllInputs();
+            StartCoroutine(LoadSceneAfterDelay("Main Menu", 3f));
         }
 
         else
             statusText.text = $"<color=red>{result}</color>";
     }
 
-    public void OnClickPlayFromRegister()
-    {
-        StartCoroutine(LoadSceneAfterDelay("Main Menu", 3f));
-    }
-
     public void OnClickLogout()
     {
+        statusText.text = $"<color=red>Logged out successfully...</color>";
         StartCoroutine(LoadSceneAfterDelay("Home Page", 3f));
     }
 
@@ -197,9 +196,14 @@ public class AuthenticationUIController : MonoBehaviour
 
     public void ClearAllInputs()
     {
-        loginUser.text = ""; loginPass.text = "";
-        regUser.text = ""; regPass.text = ""; regPassConfirm.text = "";
-        verifyUser.text = ""; verifyKey.text = "";
-        newPass.text = ""; newPassConfirm.text = "";
+        loginUser.text = ""; 
+        loginPass.text = "";
+        regUser.text = ""; 
+        regPass.text = ""; 
+        regPassConfirm.text = "";
+        verifyUser.text = ""; 
+        verifyKey.text = "";
+        newPass.text = ""; 
+        newPassConfirm.text = "";
     }
 }
