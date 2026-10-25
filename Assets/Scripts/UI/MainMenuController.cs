@@ -10,10 +10,9 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         string current = PlayerPrefs.GetString("CurrentUser", "");
+
         if (!string.IsNullOrEmpty(current) && loggedInTextObject != null)
-        {
             SetTextOnObject(loggedInTextObject, $"Logged in as {current}");
-        }
 
         if (PlayerPrefs.HasKey("LastRecoveryKey") && recoveryKeyTextObject != null)
         {
@@ -53,6 +52,7 @@ public class MainMenuController : MonoBehaviour
         }
 
         var childText = go.GetComponentInChildren<Text>();
+
         if (childText != null) 
             childText.text = text;
     }

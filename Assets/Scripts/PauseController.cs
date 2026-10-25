@@ -75,6 +75,7 @@ public class PauseController : MonoBehaviour
                     ellenExceptionApplied = false;
                 }
             }
+
             else
             {
                 ellen.SetActive(ellenWasActiveBeforePause);

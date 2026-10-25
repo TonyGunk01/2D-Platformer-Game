@@ -37,10 +37,8 @@ public class LevelManager : MonoBehaviour
             return false;
 
         for (int i = 0; i < GloballyUnlockedLevels.Length; i++)
-        {
             if (string.Equals(GloballyUnlockedLevels[i], level, StringComparison.Ordinal))
                 return true;
-        }
 
         return false;
     }
